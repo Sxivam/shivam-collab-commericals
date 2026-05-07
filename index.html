@@ -1034,6 +1034,53 @@
   }
   .copy-btn.copied svg { stroke: var(--accent-bright); }
 
+
+
+  /* ===== BONUS NOTE — Matiks virality structure, sits below tier cards ===== */
+  .bonus-note {
+    margin-top: 18px;
+    padding: 16px 22px;
+    border-left: 2px solid var(--accent);
+    background: linear-gradient(90deg, rgba(224, 169, 81, 0.07) 0%, transparent 75%);
+    border-radius: 0 4px 4px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .bonus-note-pill {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent-bright);
+    font-weight: 700;
+    padding: 5px 11px;
+    border: 1px solid rgba(224, 169, 81, 0.4);
+    border-radius: 999px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    white-space: nowrap;
+  }
+  .bonus-note-text {
+    flex: 1;
+    min-width: 250px;
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+  .bonus-note-text strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .bonus-note-text em {
+    color: var(--ink-dim);
+    font-style: italic;
+  }
+  .bonus-note-text .bonus-amt {
+    color: var(--accent-bright);
+    font-weight: 700;
+  }
+
 </style>
 </head>
 <body>
@@ -1081,12 +1128,12 @@
       </div>
       <div class="stat">
         <div class="stat-label">Views · Last 30 days</div>
-        <div class="stat-value">4.8M<span class="accent">+</span></div>
+        <div class="stat-value">5M<span class="accent">+</span></div>
         <div class="stat-sub">Across reels and stories</div>
       </div>
       <div class="stat">
         <div class="stat-label">Daily Growth</div>
-        <div class="stat-value">~800</div>
+        <div class="stat-value">850<span class="accent">+</span></div>
         <div class="stat-sub">New followers every day</div>
       </div>
       <div class="stat">
@@ -1133,7 +1180,7 @@
       <div class="tier featured">
         <div class="tier-letter">A · Brand Integration</div>
         <div class="tier-name">Integrated Reel</div>
-        <div class="tier-price"><span class="currency">₹</span>45K – 65K</div>
+        <div class="tier-price"><span class="currency">₹</span>50K – 65K</div>
         <div class="tier-spec">35 – 45 sec · embedded</div>
         <div class="tier-divider"></div>
         <div class="tier-desc">Increase brand awareness through seamless placement of your product or tool within Shivam's content rhythm. Lightweight, native, high trust.</div>
@@ -1150,6 +1197,11 @@
       </div>
     </div>
     <p style="margin-top: 22px; font-size: 13px; color: var(--ink-faint); font-style: italic;">Rates are negotiable based on brand fit and projected reach.</p>
+
+    <div class="bonus-note">
+      <span class="bonus-note-pill">+ Virality Bonus</span>
+      <span class="bonus-note-text">With <strong>Matiks</strong>, we run a virality bonus <em>on top of the base reel price</em> — <strong class="bonus-amt">₹1L</strong> at 100K views, <strong class="bonus-amt">₹2.5L</strong> at 1M views. Open to similar performance-aligned structures.</span>
+    </div>
 
     <div class="package-callout">
       <div class="package-callout-tag">Volume package</div>
