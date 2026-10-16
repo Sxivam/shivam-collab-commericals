@@ -4,11 +4,11 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Shivam Meet · Collab Commercials</title>
-<meta name="description" content="Collab commercials for @meet_.shivam: reel offerings, add-ons, ad rights and terms." />
-<meta name="theme-color" content="#f6f2e9" />
+<meta name="description" content="Collab commercials for @meet_.shivam: reel offerings, add-ons, ad rights, terms, and an order builder." />
+<meta name="theme-color" content="#8c7559" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650&family=IBM+Plex+Mono:wght@500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Reenie+Beanie&family=Special+Elite&display=swap" rel="stylesheet">
 <script>
   /* Motion gate, set before paint. ?motion=1 forces it on, ?motion=0 forces it off. */
   (function () {
@@ -16,926 +16,981 @@
     var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (/motion=1/.test(q) || (!reduce && !/motion=0/.test(q))) {
       h.setAttribute('data-motion', '');
-      /* If the script below never boots, show everything anyway. */
       setTimeout(function () { if (!h.hasAttribute('data-booted')) h.removeAttribute('data-motion'); }, 2500);
     }
   })();
 </script>
 <style>
   :root {
-    --cream: #f6f2e9;
-    --cream-2: #efe9dc;
-    --paper: #fffcf6;
-    --ink: #352a22;
-    --ink-2: #1f1813;
-    --muted: #766c60;
-    --faint: #a39a8d;
-    --unsaid: #c9c0b1;
-    --line: #ded7ca;
-    --line-2: #cfc6b5;
-    --sage: #52634d;
-    --sage-2: #3e4e3a;
-    --sage-light: #e5e9dc;
-    --red: #c8291f;
-    --serif: "Newsreader", Georgia, "Times New Roman", serif;
-    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-    --contact: 0 1px 0 rgba(53, 42, 34, .05), 0 3px 4px rgba(53, 42, 34, .09);
-    --lifted: 0 1px 0 rgba(53, 42, 34, .05), 0 14px 26px -14px rgba(53, 42, 34, .32);
+    --ink: #1b1814;
+    --ink-2: #3a332b;
+    --pencil: #5f574c;
+    --red: #b0281e;
+    --paper: #efe6d2;
+    --photo: #fbf8f1;
+    --manila: #dcc28f;
+    --desk: #8c7559;
+    --display: "Anton", Impact, "Arial Narrow", sans-serif;
+    --type: "Special Elite", "Courier New", monospace;
+    --body: "Courier Prime", "Courier New", monospace;
+    --hand: "Reenie Beanie", "Bradley Hand", cursive;
+    --lift: drop-shadow(0 1px 1px rgba(20, 12, 4, .35)) drop-shadow(0 7px 10px rgba(40, 22, 6, .32));
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  html { -webkit-text-size-adjust: 100%; }
   body {
-    background: var(--cream);
+    background: var(--desk) url(assets/tex/desk.jpg) repeat;
+    background-size: 900px;
     color: var(--ink);
-    font-family: var(--sans);
+    font-family: var(--body);
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.55;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
-  ::selection { background: var(--sage); color: var(--paper); }
-  a { color: inherit; text-decoration: none; }
-  img { display: block; max-width: 100%; }
-  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
-  :focus-visible { outline: 2px solid var(--sage); outline-offset: 3px; border-radius: 6px; }
-
-  /* Paper grain, flat and quiet */
+  /* lamp falloff on the desk */
   body::before {
-    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .55;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .2 0 0 0 0 .16 0 0 0 0 .13 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background: radial-gradient(ellipse 120% 90% at 50% 20%, transparent 55%, rgba(38, 22, 8, .38) 100%);
   }
+  ::selection { background: var(--ink); color: var(--paper); }
+  a { color: inherit; }
+  img { display: block; max-width: 100%; }
+  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+  :focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-  .container {
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 32px 32px 72px;
+  .desk { max-width: 1160px; margin: 0 auto; padding: 26px 32px 80px; position: relative; z-index: 1; overflow-x: clip; }
+
+  /* ---------------- materials ---------------- */
+  .sheet {
     position: relative;
-    z-index: 1;
-    transform-origin: 50% 0;
+    background: var(--paper) url(assets/tex/paper.jpg);
+    background-size: 640px;
   }
+  .lifted { filter: var(--lift); }
+  .torn-top::before, .torn-bottom::after {
+    content: ""; position: absolute; left: 0; right: 0; height: 42px;
+    background: inherit; pointer-events: none;
+  }
+  .torn-top::before { top: -41px; -webkit-mask: url(assets/tex/torn-top.png) 50% 100% / 100% 100% no-repeat; mask: url(assets/tex/torn-top.png) 50% 100% / 100% 100% no-repeat; }
+  .torn-bottom::after { bottom: -41px; -webkit-mask: url(assets/tex/torn-bottom.png) 50% 0 / 100% 100% no-repeat; mask: url(assets/tex/torn-bottom.png) 50% 0 / 100% 100% no-repeat; }
+  .manila { background: var(--manila) url(assets/tex/manila.jpg); background-size: 520px; }
 
-  /* ---------- shared paper pieces ---------- */
-  .paper {
-    background: var(--paper);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    box-shadow: var(--contact);
-    position: relative;
+  .tape {
+    position: absolute; z-index: 3; width: 128px; height: 30px; pointer-events: none;
+    background: url(assets/tex/tape-1.png) center / 100% 100% no-repeat; opacity: .93;
   }
-  /* the hairline inset of a mounted card */
-  .paper.mat::after {
-    content: ""; position: absolute; inset: 6px; border: 1px solid rgba(53, 42, 34, .08);
-    border-radius: 8px; pointer-events: none;
-  }
+  .tape.t2 { background-image: url(assets/tex/tape-2.png); }
+  .tape.t4 { background-image: url(assets/tex/tape-4.png); }
+  .tape.tl { top: -14px; left: -30px; rotate: -38deg; }
+  .tape.tr { top: -14px; right: -30px; rotate: 38deg; }
+  .tape.tc { top: -15px; left: 50%; margin-left: -64px; rotate: -2deg; }
 
-  .tag {
-    font-family: var(--mono);
-    font-size: 10.5px;
-    font-weight: 500;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--muted);
+  /* label maker tape */
+  .dymo {
+    display: inline-block; font-family: var(--body); font-weight: 700; font-size: 13px;
+    letter-spacing: .2em; text-transform: uppercase; color: #f1efe9; background: #151412;
+    padding: 6px 12px 5px; border-radius: 3px; white-space: nowrap;
+    background-image: linear-gradient(rgba(255, 255, 255, .07), rgba(0, 0, 0, .14));
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .22), 0 -1px 0 rgba(0, 0, 0, .7);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12), 0 1px 2px rgba(0, 0, 0, .45);
   }
+  .dymo.red { background-color: #861b14; }
 
-  /* label slip: cream slip, red rule along the top, italic serif typed on */
+  .typed { font-family: var(--type); }
+  .hand { font-family: var(--hand); color: var(--red); font-size: 30px; line-height: 1; }
+
+  /* box print: section titles printed straight onto the kraft */
+  .print-title {
+    font-family: var(--display); font-weight: 400; text-transform: uppercase;
+    font-size: clamp(44px, 6.6vw, 84px); line-height: .92; letter-spacing: .005em;
+    color: var(--ink); opacity: .92; mix-blend-mode: multiply;
+  }
   .slip {
-    display: inline-block;
-    position: relative;
-    background: var(--paper);
-    border: 1px solid var(--line);
-    border-radius: 4px;
-    box-shadow: var(--contact);
-    padding: 12px 18px 8px;
-    margin-bottom: 26px;
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 20px;
-    line-height: 1.2;
-    color: var(--ink);
-    letter-spacing: -.01em;
+    display: inline-block; position: relative; margin: 14px 0 40px; padding: 10px 18px 9px;
+    font-family: var(--type); font-size: 18px; line-height: 1.35; max-width: 100%;
   }
-  .slip::before {
-    content: ""; position: absolute; top: 5px; left: 8px; right: 8px; height: 1.5px;
-    background: var(--red); border-radius: 2px;
+
+  section { margin-bottom: 104px; position: relative; }
+
+  /* pen marks */
+  .pen { position: absolute; pointer-events: none; overflow: visible; }
+  .pen path { fill: none; stroke: var(--red); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+  .marked { position: relative; display: inline-block; white-space: nowrap; }
+
+  /* chunky physical buttons */
+  .key {
+    display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+    font-family: var(--body); font-weight: 700; font-size: 14px; letter-spacing: .08em; text-transform: uppercase;
+    min-height: 46px; padding: 0 18px; border-radius: 4px; text-decoration: none; white-space: nowrap;
+    background: var(--ink); color: var(--paper); border: 2px solid var(--ink);
+    box-shadow: 0 4px 0 #000, 0 5px 6px rgba(0, 0, 0, .3);
+    translate: 0 0; transition: translate .06s, box-shadow .06s, background .15s;
   }
-  .slip .n { color: var(--red); margin-right: 6px; }
+  .key:hover { background: #2e2923; }
+  .key:active, .key.pressed { translate: 0 4px; box-shadow: 0 0 0 #000, 0 1px 2px rgba(0, 0, 0, .3); }
+  .key.light { background: var(--photo); color: var(--ink); box-shadow: 0 4px 0 var(--ink), 0 5px 6px rgba(0, 0, 0, .25); }
+  .key.light:hover { background: #fff; }
+  .key.light:active, .key.light.pressed { box-shadow: 0 0 0 var(--ink), 0 1px 2px rgba(0, 0, 0, .25); }
+  .key.small { min-height: 38px; font-size: 12.5px; padding: 0 14px; }
+  .key svg { width: 16px; height: 16px; flex-shrink: 0; }
 
-  .section-heading {
-    font-family: var(--serif);
-    font-weight: 400;
-    font-size: clamp(34px, 4.6vw, 54px);
-    line-height: 1.06;
-    letter-spacing: -.03em;
-    color: var(--ink-2);
-    margin-bottom: 34px;
-    max-width: 20ch;
-  }
-  .section-heading em { font-style: italic; color: var(--sage); white-space: nowrap; }
+  /* ---------------- top strip ---------------- */
+  .topstrip { display: flex; justify-content: space-between; align-items: center; gap: 14px; margin-bottom: 64px; flex-wrap: wrap; }
+  .avail { display: inline-flex; align-items: center; gap: 10px; }
+  .avail .bulb { width: 10px; height: 10px; border-radius: 50%; background: #3f8a3a; box-shadow: 0 0 0 2px #151412, 0 0 10px 2px rgba(94, 190, 80, .55); }
 
-  section { margin-bottom: 96px; }
+  /* ---------------- hero ---------------- */
+  .hero { padding: 54px 56px 50px; display: grid; grid-template-columns: 250px 1fr; gap: 54px; align-items: center; margin-bottom: 110px; }
+  .photo { background: var(--photo); padding: 12px 12px 46px; position: relative; filter: var(--lift); }
+  .photo img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; filter: sepia(.12) contrast(1.04) saturate(.92); }
+  .photo figcaption { position: absolute; left: 0; right: 0; bottom: 8px; text-align: center; font-family: var(--hand); font-size: 30px; color: var(--ink-2); line-height: 1; }
+  .hero h1 { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: clamp(64px, 10vw, 140px); line-height: .86; letter-spacing: .005em; margin: 12px 0 22px; }
+  .hero .role { font-family: var(--type); font-size: 17px; color: var(--ink-2); }
+  .creds { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+  .tagline { font-size: 18px; line-height: 1.7; max-width: 600px; color: var(--ink-2); }
+  .tagline strong { color: var(--ink); }
+  .tagline .marked { color: var(--ink); font-weight: 700; }
+  .tagline .marked .pen { left: -2%; width: 104%; bottom: -.3em; height: .5em; }
 
-  /* hand-drawn marks (ellipse, underline) */
-  .mark { position: relative; display: inline-block; white-space: nowrap; }
-  .mark svg { position: absolute; pointer-events: none; overflow: visible; }
-  .mark svg path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
-  .mark.ul svg { left: -2%; width: 104%; bottom: -.16em; height: .3em; }
-  .mark.ul svg path { stroke-width: 2.2; }
-  .mark.red svg path { stroke: var(--red); }
-  .mark.sage svg path { stroke: var(--sage); }
-
-  /* ---------- top bar ---------- */
-  .topbar {
-    display: flex; justify-content: space-between; align-items: center; gap: 16px;
-    padding-bottom: 22px; margin-bottom: 64px; position: relative;
-  }
-  .topbar::after {
-    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1.5px;
-    background: var(--ink); opacity: .85; transform-origin: 0 50%;
-  }
-  .topbar-left { display: flex; align-items: center; gap: 12px; }
-  .dot {
-    width: 7px; height: 7px; border-radius: 50%; background: var(--sage);
-    box-shadow: 0 0 0 4px var(--sage-light);
-  }
-  .topbar .tag { color: var(--ink); }
-  .topbar-right { display: flex; gap: 10px; }
-  .topbar-right .sep { opacity: .4; }
-
-  /* ---------- hero ---------- */
-  .hero {
-    display: grid;
-    grid-template-columns: 236px 1fr;
-    gap: 56px;
-    align-items: center;
-    margin-bottom: 104px;
-  }
-  .portrait { padding: 12px; border-radius: 14px; }
-  .portrait .frame { border-radius: 6px; overflow: hidden; aspect-ratio: 1 / 1; background: var(--cream-2); }
-  .portrait img { width: 100%; height: 100%; object-fit: cover; transform-origin: 50% 38%; }
-  .portrait .caption { display: flex; justify-content: space-between; padding: 10px 2px 0; }
-
-  .hero-text .tag { color: var(--sage); display: block; margin-bottom: 14px; }
-  .hero-text h1 {
-    font-family: var(--serif);
-    font-weight: 400;
-    font-size: clamp(56px, 8vw, 104px);
-    line-height: .95;
-    letter-spacing: -.04em;
-    color: var(--ink-2);
-    margin-bottom: 22px;
-  }
-  .hero-text h1 em { font-style: italic; color: var(--sage); }
-
-  .credentials { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
-  .cred {
-    font-size: 12.5px; font-weight: 500; padding: 7px 13px; border-radius: 999px;
-    border: 1px solid var(--line-2); background: var(--paper); color: var(--muted);
-    box-shadow: var(--contact); white-space: nowrap;
-  }
-  .cred.solid { background: var(--sage); border-color: var(--sage); color: var(--paper); font-weight: 600; }
-
-  .tag-line { font-size: 18px; line-height: 1.6; color: var(--muted); max-width: 560px; }
-  .tag-line em { font-family: var(--serif); font-style: italic; font-size: 1.12em; color: var(--ink-2); }
-  .tag-line strong { color: var(--ink-2); font-weight: 650; letter-spacing: .02em; }
-
-  /* ---------- metrics ---------- */
-  .stats { display: grid; grid-template-columns: repeat(4, 1fr); padding: 6px; }
-  .stat { padding: 28px 26px 26px; position: relative; }
-  .stat + .stat { border-left: 1px solid var(--line); }
-  .stat-label { margin-bottom: 14px; }
+  /* ---------------- counters ---------------- */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; padding: 40px 30px 34px; }
+  .stat { padding: 0 18px; text-align: center; }
+  .stat + .stat { border-left: 2px dotted rgba(27, 24, 20, .3); }
+  .stat-label { font-family: var(--body); font-weight: 700; font-size: 12.5px; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 14px; }
   .stat-value {
-    font-family: var(--serif);
-    font-weight: 400;
-    font-size: 50px;
-    line-height: 1;
-    letter-spacing: -.03em;
-    color: var(--ink-2);
-    margin-bottom: 10px;
-    display: inline-block;
-    white-space: nowrap;
-    position: relative;
+    display: inline-flex; gap: 3px; padding: 6px; border-radius: 5px; position: relative;
+    background: #2b2823; box-shadow: inset 0 2px 4px rgba(0, 0, 0, .7), 0 1px 0 rgba(255, 255, 255, .5);
+    font-family: var(--display); font-size: 44px; line-height: 1.25; color: var(--paper);
+    margin-bottom: 14px; cursor: pointer; user-select: none;
   }
-  .stat-value .accent { color: var(--sage); font-style: italic; }
-  .stat-sub { font-size: 13.5px; color: var(--muted); line-height: 1.45; }
-  /* the ellipse around the follower count */
-  .stat-value .ring { position: absolute; left: -24%; top: -38%; width: 146%; height: 176%; pointer-events: none; overflow: visible; }
-  .stat-value .ring path { fill: none; stroke: var(--red); stroke-width: 2; stroke-linecap: round; }
-
-  .audience-note { text-align: center; margin-top: 22px; color: var(--muted); }
-
-  /* odometer */
-  .odo-col { display: inline-block; position: relative; clip-path: inset(0 -.2em); }
-  .odo-col > .ghost { visibility: hidden; }
-  .odo-strip { position: absolute; left: 0; top: 0; width: 100%; text-align: center; }
-  .odo-strip > span { display: block; height: 1em; line-height: 1; }
-
-  /* ---------- partners ---------- */
-  .partners-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-  .partner-card { padding: 10px 10px 18px; text-align: center; border-radius: 12px; }
-  .partner-logo {
-    background: #fff; border-radius: 7px; height: 92px; display: flex; align-items: center;
-    justify-content: center; padding: 12px; margin-bottom: 14px; overflow: hidden;
-    border: 1px solid rgba(53, 42, 34, .06);
+  .stat-value .accent { color: #e2655a; }
+  .wheel, .plate {
+    display: inline-block; position: relative; height: 1.25em; min-width: .74em; text-align: center; border-radius: 2px;
+    background: linear-gradient(#0b0a09, #26221e 22%, #322d27 50%, #26221e 78%, #0b0a09);
+    clip-path: inset(0);
   }
-  .partner-logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
-  .partner-name { font-weight: 600; font-size: 15px; color: var(--ink-2); margin-bottom: 3px; letter-spacing: -.01em; }
-  .partner-desc { font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--muted); line-height: 1.35; }
+  .plate { padding: 0 .1em; }
+  .wheel .ghost { visibility: hidden; padding: 0 .08em; }
+  .wheel .strip { position: absolute; left: 0; right: 0; top: 0; }
+  .wheel .strip span { display: block; height: 1.25em; }
+  .stat-sub { font-size: 14.5px; color: var(--ink-2); line-height: 1.4; }
+  .stat .hint { display: block; font-family: var(--type); font-size: 11.5px; color: var(--pencil); margin-top: 6px; }
+  .stat-value .pen { left: -16%; top: -26%; width: 132%; height: 152%; }
+  .audience { margin: 30px auto 0; padding: 12px 22px 10px; font-family: var(--type); font-size: 15px; text-align: center; max-width: 860px; }
 
-  /* ---------- reel offerings ---------- */
-  .tiers { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  .tier { padding: 34px 32px 30px; display: flex; flex-direction: column; }
-  .tier-letter { margin-bottom: 14px; color: var(--sage); }
-  .tier-name { font-family: var(--serif); font-size: 32px; font-weight: 400; letter-spacing: -.025em; line-height: 1.1; color: var(--ink-2); margin-bottom: 18px; }
-  .tier-price, .addon-price, .boost-price { white-space: nowrap; }
-  .tier-price { line-height: 1; font-family: var(--serif); font-size: 38px; letter-spacing: -.03em; line-height: 1; color: var(--ink-2); margin-bottom: 14px; }
-  .tier-price .to { font-style: italic; font-size: .55em; color: var(--muted); letter-spacing: 0; white-space: pre; }
-  .tier-spec { margin-bottom: 22px; }
-  .tier-divider { height: 1px; background: var(--line); margin-bottom: 20px; }
-  .tier-desc { color: var(--muted); font-size: 15px; line-height: 1.6; flex: 1; }
-  .tier-example { margin-top: 24px; padding-top: 18px; border-top: 1px dashed var(--line-2); font-size: 14px; color: var(--muted); }
-  .tier-example .tag { display: block; margin-bottom: 6px; color: var(--faint); }
-  .tier-example strong { color: var(--ink-2); font-weight: 600; }
-
-  .stamp {
-    position: absolute; top: 22px; right: 22px;
-    font-family: var(--mono); font-weight: 600; font-size: 11px; letter-spacing: .16em; text-transform: uppercase;
-    color: var(--red); padding: 6px 10px 5px; border: 1.5px solid var(--red); border-radius: 3px;
-    box-shadow: inset 0 0 0 2px var(--paper), inset 0 0 0 3px rgba(200, 41, 31, .55);
-    transform: rotate(-4deg); mix-blend-mode: multiply; opacity: .92;
+  /* ---------------- partner prints ---------------- */
+  .prints { display: grid; grid-template-columns: repeat(4, 1fr); gap: 46px 30px; padding-top: 8px; }
+  .print {
+    background: var(--photo); padding: 10px 10px 14px; position: relative; filter: var(--lift);
+    transition: translate .18s ease, filter .18s ease;
   }
+  .print:hover { translate: 0 -5px; filter: drop-shadow(0 1px 1px rgba(20, 12, 4, .3)) drop-shadow(0 16px 16px rgba(40, 22, 6, .35)); }
+  .print .logo { background: #fff; height: 118px; display: flex; align-items: center; justify-content: center; padding: 14px; }
+  .print .logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  .print .name { font-weight: 700; font-size: 15px; text-transform: uppercase; letter-spacing: .06em; margin-top: 12px; }
+  .print .desc { font-family: var(--type); font-size: 13.5px; color: var(--ink-2); line-height: 1.35; }
 
-  .rates-note { margin-top: 22px; font-family: var(--serif); font-style: italic; font-size: 16px; color: var(--muted); }
+  /* ---------------- tickets ---------------- */
+  .tickets { display: grid; grid-template-columns: repeat(2, 1fr); gap: 34px; }
+  .ticket-wrap { position: relative; filter: var(--lift); }
+  .ticket {
+    --stub: 92px;
+    display: grid; grid-template-columns: var(--stub) 1fr; height: 100%;
+    -webkit-mask: radial-gradient(circle at var(--stub) 0, transparent 12px, #000 13px) top / 100% 51% no-repeat, radial-gradient(circle at var(--stub) 100%, transparent 12px, #000 13px) bottom / 100% 51% no-repeat;
+    mask: radial-gradient(circle at var(--stub) 0, transparent 12px, #000 13px) top / 100% 51% no-repeat, radial-gradient(circle at var(--stub) 100%, transparent 12px, #000 13px) bottom / 100% 51% no-repeat;
+  }
+  .stub { border-right: 2px dashed rgba(27, 24, 20, .45); display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 26px 0 22px; }
+  .stub .letter { font-family: var(--display); font-size: 64px; line-height: 1; }
+  .stub .vert { writing-mode: vertical-rl; rotate: 180deg; font-weight: 700; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--ink-2); }
+  .ticket-body { padding: 28px 30px 28px; display: flex; flex-direction: column; }
+  .ticket .kind { font-family: var(--type); font-size: 14px; color: var(--ink-2); }
+  .ticket .name { font-family: var(--display); font-size: 42px; line-height: 1; text-transform: uppercase; margin: 6px 0 14px; }
+  .ticket .price { font-weight: 700; font-size: 34px; line-height: 1.1; letter-spacing: -.01em; }
+  .ticket .price .to { font-weight: 400; font-size: .5em; color: var(--ink-2); }
+  .ticket .spec { font-weight: 700; font-size: 12.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-2); margin: 6px 0 18px; padding-bottom: 16px; border-bottom: 2px solid rgba(27, 24, 20, .7); }
+  .ticket .desc { font-size: 15.5px; line-height: 1.6; flex: 1; }
+  .ticket .used { margin-top: 18px; padding-top: 14px; border-top: 1px dashed rgba(27, 24, 20, .5); font-size: 14.5px; }
+  .ticket .used .typed { display: block; font-size: 12.5px; color: var(--ink-2); margin-bottom: 2px; }
+  .ticket .actions { margin-top: 22px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .incount { font-family: var(--hand); font-size: 30px; color: var(--red); line-height: 1; min-height: 1em; }
+  .booked { position: absolute; right: 18px; top: -48px; z-index: 4; display: flex; align-items: flex-end; gap: 4px; }
+  .booked .hand { font-size: 46px; }
+  .booked svg { width: 46px; height: 40px; overflow: visible; }
+  .booked path { fill: none; stroke: var(--red); stroke-width: 2.4; stroke-linecap: round; }
+  .rates-note { margin-top: 30px; padding: 9px 16px 8px; display: inline-block; font-family: var(--type); font-size: 15px; }
 
-  .package-callout { margin-top: 26px; padding: 22px 28px; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; border-radius: 12px; }
-  .package-callout .tag { color: var(--sage); padding: 6px 12px; border: 1px solid var(--sage); border-radius: 999px; flex-shrink: 0; }
-  .package-callout-body { flex: 1; min-width: 240px; font-size: 15.5px; line-height: 1.6; color: var(--ink); }
-  .package-callout-body strong { font-weight: 650; color: var(--ink-2); }
-  .package-discount { font-family: var(--serif); font-style: italic; font-size: 1.3em; color: var(--sage-2); }
-  .package-note { color: var(--muted); font-style: italic; }
+  .package { margin-top: 56px; padding: 30px 34px 28px; display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+  .package p { flex: 1; min-width: 240px; font-size: 16.5px; line-height: 1.65; }
+  .package .marked { font-weight: 700; font-size: 1.15em; }
+  .package .marked .pen { left: -14%; top: -40%; width: 128%; height: 180%; }
 
-  /* ---------- add-ons ---------- */
-  .addons { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  .addon { padding: 24px 28px; display: flex; justify-content: space-between; align-items: center; gap: 22px; }
-  .addon-name { font-family: var(--serif); font-size: 22px; letter-spacing: -.02em; color: var(--ink-2); margin-bottom: 3px; line-height: 1.2; }
-  .addon-meta { font-size: 14px; color: var(--muted); }
-  .addon-price { font-family: var(--serif); font-size: 30px; letter-spacing: -.03em; color: var(--sage-2); white-space: nowrap; line-height: 1; }
+  /* ---------------- add-ons ---------------- */
+  .addons { display: grid; grid-template-columns: repeat(2, 1fr); gap: 34px; }
+  .addons .ticket { --stub: 74px; }
+  .addons .stub { justify-content: center; }
+  .addons .ticket-body { padding: 22px 26px; flex-direction: row; align-items: center; gap: 18px; flex-wrap: wrap; }
+  .addon-info { flex: 1; min-width: 160px; }
+  .addon-name { font-family: var(--display); font-size: 26px; line-height: 1.05; text-transform: uppercase; }
+  .addon-meta { font-family: var(--type); font-size: 14px; color: var(--ink-2); margin-top: 4px; }
+  .addon-price { font-weight: 700; font-size: 28px; }
 
-  /* ---------- boosting ---------- */
-  .lede { color: var(--muted); font-size: 16px; max-width: 640px; margin: -14px 0 30px; }
-  .boosting-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  .boost-card { padding: 32px 30px 30px; }
-  .boost-duration { margin-bottom: 12px; color: var(--sage); }
-  .boost-price { font-family: var(--serif); font-size: 72px; line-height: 1; letter-spacing: -.045em; color: var(--ink-2); margin-bottom: 20px; }
-  .boost-price .sym { font-style: italic; color: var(--sage); font-size: .6em; }
-  .bar { display: flex; height: 12px; margin-bottom: 8px; }
-  .bar .base { flex: 0 0 54%; background: var(--ink); border-radius: 2px 0 0 2px; }
-  .bar .ext { background: var(--red); border-radius: 0 2px 2px 0; transform-origin: 0 50%; }
-  .bar-key { display: flex; margin-bottom: 18px; }
+  /* ---------------- index cards (ad rights) ---------------- */
+  .lede { padding: 14px 20px 12px; max-width: 720px; font-size: 16px; line-height: 1.6; margin: -10px 0 44px; }
+  .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 34px; }
+  .card {
+    background: #f7f4ec;
+    background-image: linear-gradient(transparent 52px, rgba(176, 40, 30, .55) 52px, rgba(176, 40, 30, .55) 54px, transparent 54px),
+      repeating-linear-gradient(transparent 0 29px, rgba(70, 105, 170, .28) 29px 30px);
+    background-position: 0 0, 0 54px;
+    padding: 16px 28px 26px; position: relative; filter: var(--lift);
+  }
+  .card .dur { font-weight: 700; font-size: 13px; letter-spacing: .2em; text-transform: uppercase; height: 36px; display: flex; align-items: center; }
+  .card .big { font-family: var(--display); font-size: 92px; line-height: 1; margin: 14px 0 12px; }
+  .card .big .sym { color: var(--red); }
+  .bar { display: flex; height: 18px; margin-bottom: 8px; }
+  .bar .base { flex: 0 0 54%; background: var(--ink); }
+  .bar .ext { background: repeating-linear-gradient(-45deg, var(--red) 0 3px, transparent 3px 6px); border: 2px solid var(--red); border-left: 0; transform-origin: 0 50%; }
+  .bar-key { display: flex; font-weight: 700; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 14px; }
   .bar-key span:first-child { flex: 0 0 54%; }
   .bar-key span:last-child { color: var(--red); }
-  .boost-desc { color: var(--muted); font-size: 14.5px; line-height: 1.55; }
+  .card p { font-size: 15px; line-height: 30px; margin-bottom: 16px; }
 
-  /* ---------- terms ---------- */
-  .terms-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-  .term-card { padding: 26px 22px 24px; border-radius: 10px; }
-  .term-card .tag { color: var(--sage); margin-bottom: 14px; display: block; }
-  .term-label { font-family: var(--serif); font-size: 23px; letter-spacing: -.02em; color: var(--ink-2); margin-bottom: 10px; line-height: 1.15; }
-  .term-desc { color: var(--muted); font-size: 14.5px; line-height: 1.55; }
-  .term-desc strong {
-    color: var(--ink-2); font-weight: 650;
-    background: linear-gradient(var(--sage-light), var(--sage-light)) no-repeat 0 85% / 100% 42%;
-    padding: 0 2px;
+  /* ---------------- luggage tags (terms) ---------------- */
+  .tags { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; }
+  .tag-wrap { filter: var(--lift); transform-origin: 26px 50%; transition: rotate .35s cubic-bezier(.3, 1.6, .5, 1); }
+  .tag-wrap:hover { rotate: -2.5deg; }
+  .luggage {
+    padding: 22px 22px 24px 52px; height: 100%; position: relative;
+    clip-path: polygon(20px 0, 100% 0, 100% 100%, 20px 100%, 0 calc(100% - 20px), 0 20px);
+    -webkit-mask: radial-gradient(circle at 26px 50%, transparent 7px, #000 7.5px);
+    mask: radial-gradient(circle at 26px 50%, transparent 7px, #000 7.5px);
   }
+  .luggage::before { content: ""; position: absolute; left: 15px; top: calc(50% - 11px); width: 22px; height: 22px; border-radius: 50%; border: 4px solid rgba(120, 88, 40, .55); }
+  .luggage .no { font-family: var(--type); font-size: 13px; color: var(--ink-2); }
+  .luggage h3 { font-family: var(--display); font-weight: 400; font-size: 28px; line-height: 1; text-transform: uppercase; margin: 6px 0 10px; }
+  .luggage p { font-size: 14.5px; line-height: 1.55; }
 
-  /* ---------- process ---------- */
-  .process { position: relative; list-style: none; padding-left: 0; max-width: 760px; }
-  .process::before { content: ""; position: absolute; left: 15px; top: 14px; bottom: 28px; width: 1.5px; background: var(--ink); transform-origin: 50% 0; }
-  .process li { display: grid; grid-template-columns: 32px 1fr; gap: 22px; align-items: start; padding: 10px 0 18px; position: relative; }
-  .process .num {
-    width: 32px; height: 32px; border-radius: 50%; background: var(--paper); border: 1.5px solid var(--ink);
-    display: flex; align-items: center; justify-content: center; position: relative; z-index: 1;
-    font-family: var(--mono); font-size: 11px; font-weight: 600; color: var(--ink-2);
+  /* ---------------- notebook (process) ---------------- */
+  .notebook {
+    background: #fbf9f2;
+    background-image: linear-gradient(90deg, transparent 70px, rgba(176, 40, 30, .6) 70px, rgba(176, 40, 30, .6) 72px, transparent 72px),
+      repeating-linear-gradient(transparent 0 35px, rgba(70, 105, 170, .3) 35px 36px);
+    padding: 36px 34px 30px 96px; max-width: 860px; position: relative; filter: var(--lift);
   }
-  .process li:last-child .num { background: var(--sage); border-color: var(--sage); color: var(--paper); }
-  .process p { font-size: 17px; line-height: 1.55; color: var(--ink); padding-top: 4px; }
+  .notebook ol { list-style: none; }
+  .notebook li { position: relative; font-family: var(--type); font-size: 17.5px; line-height: 36px; min-height: 72px; }
+  .notebook li .n { position: absolute; left: -72px; top: -2px; width: 56px; text-align: right; font-family: var(--hand); font-size: 40px; line-height: 36px; color: var(--red); }
 
-  /* ---------- contact ---------- */
-  .contact { padding: 64px 48px 56px; text-align: center; border-radius: 16px; }
-  .contact .tag { color: var(--sage); display: block; margin-bottom: 16px; }
-  .contact-heading { font-family: var(--serif); font-weight: 400; font-size: clamp(42px, 6vw, 72px); letter-spacing: -.04em; line-height: 1; color: var(--ink-2); margin-bottom: 14px; }
-  .contact-heading em { font-style: italic; color: var(--sage); }
-  .contact-sub { color: var(--muted); font-size: 16px; margin-bottom: 34px; }
-  .socials { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; max-width: 920px; margin: 0 auto; }
-  .social-btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%;
-    height: 50px; padding: 0 14px; border-radius: 999px; font-size: 14px; font-weight: 600;
-    border: 1px solid var(--line-2); background: var(--cream); color: var(--ink-2);
-    transition: transform .18s ease, background .18s ease, border-color .18s ease, color .18s ease;
-    position: relative;
+  /* ---------------- order builder ---------------- */
+  .order-grid { display: grid; grid-template-columns: 1fr 470px; gap: 50px; align-items: start; }
+  .order-help { padding: 26px 28px 24px; font-size: 15.5px; line-height: 1.65; }
+  .order-help p + p { margin-top: 12px; }
+  .order-help .hand { font-size: 32px; display: block; margin-top: 16px; }
+  .receipt-wrap { filter: var(--lift); position: sticky; top: 20px; }
+  .receipt {
+    --z: 9px;
+    background: #fcfbf7; padding: 28px 26px 40px; font-family: var(--body); font-size: 15px;
+    -webkit-mask: linear-gradient(#000 0 0) top / 100% calc(100% - var(--z)) no-repeat, conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / calc(2 * var(--z)) var(--z) repeat-x;
+    mask: linear-gradient(#000 0 0) top / 100% calc(100% - var(--z)) no-repeat, conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / calc(2 * var(--z)) var(--z) repeat-x;
   }
-  .social-btn:hover { transform: translateY(-1px); background: var(--paper); border-color: var(--ink); }
-  .social-btn.primary { background: var(--sage); border-color: var(--sage); color: var(--paper); }
-  .social-btn.primary:hover { background: var(--sage-2); }
-  .social-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
-  .btn-label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .stamp-mini {
-    position: absolute; top: -12px; right: 14px; font-family: var(--mono); font-weight: 600; font-size: 10px;
-    letter-spacing: .14em; text-transform: uppercase; color: var(--red); background: var(--paper);
-    border: 1.5px solid var(--red); border-radius: 3px; padding: 3px 7px 2px; transform: rotate(-5deg);
-    pointer-events: none; animation: slam .2s cubic-bezier(.2, .9, .3, 1.2) both;
+  .receipt .head { text-align: center; padding-bottom: 14px; border-bottom: 2px dashed var(--ink); margin-bottom: 8px; }
+  .receipt .head b { display: block; font-family: var(--display); font-weight: 400; font-size: 30px; letter-spacing: .02em; text-transform: uppercase; }
+  .receipt .head span { font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; }
+  .line { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 12px 0; border-bottom: 1px dashed rgba(27, 24, 20, .35); }
+  .line.off { color: #8e877c; }
+  .line .what { font-weight: 700; }
+  .line .unit { font-size: 13px; grid-column: 1; }
+  .line .amt { text-align: right; grid-row: 1 / span 2; grid-column: 2; align-self: center; white-space: nowrap; }
+  .stepper { display: inline-flex; align-items: center; border: 2px solid var(--ink); border-radius: 4px; margin-top: 6px; width: max-content; background: #fff; }
+  .stepper button { width: 34px; height: 32px; font-weight: 700; font-size: 18px; line-height: 1; }
+  .stepper button:hover { background: var(--paper); }
+  .stepper button:active { background: var(--ink); color: var(--paper); }
+  .stepper output { min-width: 34px; text-align: center; font-weight: 700; border-left: 2px solid var(--ink); border-right: 2px solid var(--ink); height: 32px; line-height: 32px; }
+  .rights { padding: 14px 0 12px; border-bottom: 1px dashed rgba(27, 24, 20, .35); }
+  .rights .what { font-weight: 700; display: block; margin-bottom: 8px; }
+  .seg { display: grid; grid-template-columns: repeat(3, 1fr); border: 2px solid var(--ink); border-radius: 4px; overflow: hidden; }
+  .seg button { padding: 8px 4px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #fff; }
+  .seg button + button { border-left: 2px solid var(--ink); }
+  .seg button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+  .sumline { display: flex; justify-content: space-between; gap: 12px; padding: 6px 0; font-size: 14.5px; }
+  .sumline.red { color: var(--red); font-weight: 700; }
+  .total { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 10px; padding-top: 12px; border-top: 2px solid var(--ink); }
+  .total b { font-family: var(--display); font-weight: 400; font-size: 26px; text-transform: uppercase; }
+  .total .val { font-weight: 700; font-size: 22px; text-align: right; }
+  .receipt .fine { font-size: 12.5px; color: var(--pencil); margin-top: 10px; }
+  .receipt .empty { font-family: var(--hand); font-size: 30px; color: var(--red); text-align: center; padding: 10px 0 2px; line-height: 1.05; }
+  .receipt .acts { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+  .receipt .acts .key { flex: 1; }
+  .clear { font-size: 13px; text-decoration: underline; color: var(--pencil); margin-top: 12px; }
+
+  /* order tag that follows you once something is in the order */
+  .order-tab {
+    position: fixed; right: 18px; bottom: 18px; z-index: 50; display: flex; align-items: center; gap: 12px;
+    padding: 12px 16px 12px 30px; text-decoration: none; color: var(--ink); filter: var(--lift);
+    clip-path: polygon(14px 0, 100% 0, 100% 100%, 14px 100%, 0 50%);
+    translate: 0 140%; transition: translate .25s cubic-bezier(.2, .9, .3, 1.1);
   }
+  .order-tab.show { translate: 0 0; }
+  .order-tab.show.away { translate: 0 140%; }
+  .order-tab b { font-family: var(--display); font-weight: 400; font-size: 20px; text-transform: uppercase; }
+  .order-tab span { font-weight: 700; font-size: 14px; }
 
-  .footer-meta { margin-top: 44px; padding-top: 22px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; position: relative; }
-  .footer-meta::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1.5px; background: var(--ink); opacity: .85; }
+  /* ---------------- contact ---------------- */
+  .contact { padding: 60px 56px 54px; text-align: center; }
+  .contact .lead { font-family: var(--type); font-size: 17px; color: var(--ink-2); }
+  .contact h2 { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: clamp(56px, 9vw, 120px); line-height: .9; margin: 14px 0 16px; }
+  .contact .sub { font-size: 15.5px; margin-bottom: 34px; }
+  .socials { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 980px; margin: 0 auto; }
+  .socials .key { width: 100%; position: relative; text-transform: none; letter-spacing: .02em; font-size: 14.5px; }
+  .socials .label { overflow: hidden; text-overflow: ellipsis; }
+  .copied { position: absolute; top: -34px; left: 50%; translate: -50% 0; font-family: var(--hand); font-size: 30px; color: var(--red); text-transform: none; letter-spacing: 0; font-weight: 400; pointer-events: none; white-space: nowrap; }
 
-  /* ---------- responsive ---------- */
+  .footer { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 56px; font-family: var(--body); font-weight: 700; font-size: 12.5px; letter-spacing: .16em; text-transform: uppercase; opacity: .85; mix-blend-mode: multiply; }
+
+  /* ---------------- responsive ---------------- */
+  @media (max-width: 980px) {
+    .order-grid { grid-template-columns: 1fr; }
+    .receipt-wrap { position: relative; top: 0; max-width: 520px; }
+    .tags { grid-template-columns: repeat(2, 1fr); }
+  }
   @media (max-width: 880px) {
-    .hero { grid-template-columns: 1fr; gap: 32px; }
-    .portrait { width: 200px; }
-    .stats { grid-template-columns: repeat(2, 1fr); }
-    .stat:nth-child(3) { border-left: 0; }
-    .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
-    .partners-grid { grid-template-columns: repeat(3, 1fr); }
-    .tiers, .addons, .boosting-grid { grid-template-columns: 1fr; }
-    .terms-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero { grid-template-columns: minmax(0, 1fr); gap: 40px; padding: 44px 30px 40px; }
+    .photo { width: 220px; }
+    .stats { grid-template-columns: repeat(2, 1fr); row-gap: 34px; }
+    .stat:nth-of-type(3) { border-left: 0; }
+    .prints { grid-template-columns: repeat(3, 1fr); }
+    .tickets, .addons, .cards { grid-template-columns: 1fr; }
     .socials { grid-template-columns: repeat(2, 1fr); }
     .contact { padding: 48px 26px; }
   }
-  @media (max-width: 520px) {
-    .container { padding: 22px 16px 56px; }
-    .topbar { margin-bottom: 44px; }
-    .topbar .tag { font-size: 9.5px; letter-spacing: .1em; white-space: nowrap; }
-    .topbar-right .hide-sm { display: none; }
-    .hero { margin-bottom: 80px; }
-    .portrait { width: 168px; }
-    .stat { padding: 22px 16px 20px; }
-    .stat-value { font-size: 38px; }
-    .partners-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .partner-logo { height: 74px; padding: 9px; }
-    .tier { padding: 28px 22px 24px; }
-    .tier-price { font-size: 32px; }
-    .stamp { top: 16px; right: 14px; }
-    .addon { flex-direction: column; align-items: flex-start; gap: 10px; padding: 22px; }
-    .boost-price { font-size: 60px; }
-    .terms-grid { grid-template-columns: 1fr; }
+  @media (max-width: 560px) {
+    .desk { padding: 18px 16px 90px; }
+    .topstrip { margin-bottom: 52px; }
+    .topstrip .dymo { font-size: 11px; letter-spacing: .14em; }
+    .hero { padding: 34px 20px 32px; margin-bottom: 90px; }
+    .hero h1 { font-size: 17vw; }
+    .hero .role { font-size: 15px; }
+    .creds .dymo { white-space: normal; line-height: 1.5; letter-spacing: .14em; }
+    .tagline { font-size: 16px; }
+    .tagline .marked { white-space: normal; display: inline; }
+    .tagline .marked .pen { display: none; }
+    .tagline .marked { text-decoration: underline 2px var(--red); text-underline-offset: 5px; }
+    .order-tab { padding: 9px 12px 9px 24px; gap: 8px; }
+    .order-tab b { font-size: 16px; white-space: nowrap; }
+    .order-tab span { font-size: 12.5px; white-space: nowrap; }
+    .photo { width: 180px; }
+    .stats { padding: 30px 8px 26px; }
+    .stat { padding: 0 8px; }
+    .stat-value { font-size: 32px; }
+    .prints { grid-template-columns: repeat(2, 1fr); gap: 34px 16px; }
+    .print .logo { height: 86px; padding: 10px; }
+    .ticket { --stub: 58px; }
+    .stub .letter { font-size: 42px; }
+    .ticket-body { padding: 22px 18px; }
+    .ticket .name { font-size: 34px; }
+    .ticket .price { font-size: 28px; }
+    .booked { top: -44px; right: 8px; }
+    .addons .ticket { --stub: 52px; }
+    .card .big { font-size: 74px; }
+    .card { padding: 16px 20px 24px; }
+    .tags { grid-template-columns: 1fr; }
+    .notebook { padding: 28px 18px 24px 70px; background-image: linear-gradient(90deg, transparent 52px, rgba(176, 40, 30, .6) 52px, rgba(176, 40, 30, .6) 54px, transparent 54px), repeating-linear-gradient(transparent 0 35px, rgba(70, 105, 170, .3) 35px 36px); }
+    .notebook li { font-size: 15.5px; }
+    .notebook li .n { left: -58px; width: 46px; font-size: 34px; }
+    .receipt { padding: 24px 16px 38px; }
     .socials { grid-template-columns: 1fr; }
-    section { margin-bottom: 76px; }
-    .slip { font-size: 18px; }
+    .tape { width: 100px; height: 24px; }
+    .tape.tc { margin-left: -50px; }
+    section { margin-bottom: 84px; }
+    .order-tab { right: 10px; bottom: 10px; }
   }
 
   /* =================================================================
-     MOTION. Everything below only runs under html[data-motion].
-     Grammar from Paper Parable: things land fast with a hard stop,
-     draw-ons are stepped (drawn on twos), growth is stepped, one red
-     mark per section, and nothing is still on the page for long
-     where the eye is meant to be.
+     MOTION, Startup Stories rules: paper is placed by hand in
+     stop motion (poses on threes, never smooth), pen and type on
+     twos, mechanical counters click one digit at a time.
      ================================================================= */
-  @keyframes settle { from { scale: 1.014; } to { scale: 1; } }
-  @keyframes pushin { from { transform: scale(1); } to { transform: scale(1.07); } }
-  @keyframes slam { 0% { scale: 1.9; opacity: 0; } 55% { scale: .92; opacity: 1; } 100% { scale: 1; opacity: .92; } }
-  @keyframes pop { 0% { scale: 0; } 70% { scale: 1.14; } 100% { scale: 1; } }
-  @keyframes breathe { 0%, 100% { box-shadow: 0 0 0 4px var(--sage-light); } 50% { box-shadow: 0 0 0 7px var(--sage-light); } }
-
-  html[data-motion] .container { animation: settle .45s cubic-bezier(.2, .7, .2, 1) both; }
-  html[data-motion] .dot { animation: breathe 2.6s ease-in-out infinite; }
-  html[data-motion] .portrait img { animation: pushin 16s linear infinite alternate; }
-
-  /* rules draw across at constant speed, on twos */
-  html[data-motion] .topbar::after,
-  html[data-motion] .footer-meta::before { transform: scaleX(0); transition: transform .7s steps(10, end); }
-  html[data-motion] .topbar.in::after,
-  html[data-motion] .footer-meta.in::before { transform: none; }
-
-  /* karaoke: phrase shows grey, each word snaps to ink on its beat (no fade) */
-  html[data-motion] [data-fx~="karaoke"] .kw { color: var(--unsaid); }
-  html[data-motion] [data-fx~="karaoke"] .kw.on { color: inherit; }
-
-  /* label slip: blank slip slides in with blur, then types */
-  html[data-motion] .slip { opacity: 0; translate: -18px 0; filter: blur(6px); transition: opacity .1s linear, translate .14s cubic-bezier(.1, .8, .2, 1), filter .14s linear; }
-  html[data-motion] .slip.in { opacity: 1; translate: none; filter: none; }
-  html[data-motion] .slip .ch { visibility: hidden; }
-  html[data-motion] .slip .ch.v { visibility: visible; }
-
-  /* hand-drawn marks: stepped draw-on */
-  html[data-motion] .mark svg path,
-  html[data-motion] .ring path { stroke-dasharray: 1; stroke-dashoffset: 1; }
-  html[data-motion] .drawn svg path,
-  html[data-motion] .drawn.ring path { stroke-dashoffset: 0; transition: stroke-dashoffset .32s steps(6, end); }
-
-  /* pop-ins (credential pills, process numbers) */
-  html[data-motion] [data-fx~="pop"] > * { scale: 0; }
-  html[data-motion] [data-fx~="pop"].in > * { scale: 1; animation: pop .14s cubic-bezier(.2, .9, .3, 1.3) both; animation-delay: calc(var(--i, 0) * 70ms + var(--d, 0ms)); }
-
-  /* drop onto the desk: big soft shadow tightens as the card lands */
-  html[data-motion] [data-fx~="drop"] > * { opacity: 0; scale: 1.14; box-shadow: 0 30px 40px -10px rgba(53, 42, 34, .25); }
-  html[data-motion] [data-fx~="drop"].in > * {
-    opacity: 1; scale: 1; box-shadow: var(--contact);
-    transition: opacity .06s linear, scale .13s cubic-bezier(.3, 1.35, .5, 1), box-shadow .13s ease-out;
-    transition-delay: calc(var(--i, 0) * 75ms);
+  @keyframes place {
+    0% { opacity: 0; translate: var(--fx, 0) var(--fy, -22px); scale: 1.035; }
+    34% { opacity: 1; translate: calc(var(--fx, 0) * .35) calc(var(--fy, -22px) * .35); scale: 1.012; }
+    67% { opacity: 1; translate: 0 2px; scale: 1; }
+    100% { opacity: 1; translate: 0 0; scale: 1; }
   }
+  @keyframes stick { 0% { opacity: 0; scale: 1.25; } 50% { opacity: 1; scale: .97; } 100% { opacity: .93; scale: 1; } }
+  @keyframes boil { 0% { translate: 0 0; } 33% { translate: .6px -.5px; } 66% { translate: -.5px .4px; } }
 
-  /* dealt papers: fly in turning, settle straight */
-  html[data-motion] [data-fx~="deal"] > * { opacity: 0; translate: 0 34px; rotate: var(--r, -7deg); }
-  html[data-motion] [data-fx~="deal"].in > * {
-    opacity: 1; translate: none; rotate: none;
-    transition: opacity .08s linear, translate .22s cubic-bezier(.15, .9, .25, 1.06), rotate .22s cubic-bezier(.15, .9, .25, 1.06);
-    transition-delay: calc(var(--i, 0) * 95ms);
-  }
+  html[data-motion] [data-rv] { opacity: 0; }
+  html[data-motion] [data-rv].in { opacity: 1; animation: place .3s steps(3, end) backwards; animation-delay: var(--d, 0ms); }
+  html[data-motion] [data-group] > [data-rv].in { animation-delay: calc(var(--i, 0) * 120ms); }
+  html[data-motion] [data-rv] .tape { opacity: 0; }
+  html[data-motion] [data-rv].in .tape { animation: stick .2s steps(2, end) backwards; animation-delay: calc(var(--i, 0) * 120ms + var(--d, 0ms) + 300ms); }
+  html[data-motion] .hand, html[data-motion] .booked { animation: boil .5s steps(1, end) infinite; }
+  html[data-motion] .incount, html[data-motion] .copied { animation: none; }
 
-  /* slide in with blur, strong ease-out stop, no bounce */
-  html[data-motion] [data-fx~="slide"] > * { opacity: 0; translate: -26px 0; filter: blur(7px); }
-  html[data-motion] [data-fx~="slide"].in > * {
-    opacity: 1; translate: none; filter: none;
-    transition: opacity .1s linear, translate .2s cubic-bezier(.1, .85, .2, 1), filter .2s linear;
-    transition-delay: calc(var(--i, 0) * 90ms);
-  }
-  html[data-motion] [data-fx~="fade"] { opacity: 0; translate: 0 10px; }
-  html[data-motion] [data-fx~="fade"].in { opacity: 1; translate: none; transition: opacity .3s ease-out, translate .3s cubic-bezier(.2, .8, .2, 1); transition-delay: var(--d, 0ms); }
+  /* typewriter */
+  html[data-motion] [data-type] .ch { visibility: hidden; }
+  html[data-motion] [data-type] .ch.v { visibility: visible; }
 
-  /* stamp slams after the card lands */
-  html[data-motion] .stamp { opacity: 0; scale: 1.9; }
-  html[data-motion] .in .stamp { animation: slam .18s cubic-bezier(.2, .9, .3, 1.2) both; animation-delay: .55s; }
+  /* pen draw-on, on twos */
+  html[data-motion] .pen path { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  html[data-motion] .pen.drawn path { stroke-dashoffset: 0; transition: stroke-dashoffset .36s steps(6, end); }
+  html[data-motion] .booked { opacity: 0; }
+  html[data-motion] .booked.drawn { opacity: 1; }
 
-  /* highlighter sweeps, stepped */
-  html[data-motion] .term-desc strong { background-size: 0% 42%; }
-  html[data-motion] .in .term-desc strong { background-size: 100% 42%; transition: background-size .3s steps(6, end); transition-delay: calc(var(--i, 0) * 95ms + .35s); }
-
-  /* stepped growth bars */
+  /* stepped growth */
   html[data-motion] .bar .ext { transform: scaleX(0); }
-  html[data-motion] .bar .ext.grown { transform: none; transition: transform .6s steps(9, end); }
-
-  /* process: the ground line draws down, each stop pops as it is reached */
-  html[data-motion] .process::before { transform: scaleY(0); }
-  html[data-motion] .process.in::before { transform: none; transition: transform 2.1s linear; }
-  html[data-motion] .process .num { scale: 0; }
-  html[data-motion] .process.in .num { scale: 1; animation: pop .14s cubic-bezier(.2, .9, .3, 1.3) both; animation-delay: calc(var(--i) * 470ms); }
-  html[data-motion] .process p { opacity: 0; translate: -14px 0; filter: blur(5px); }
-  html[data-motion] .process.in p { opacity: 1; translate: none; filter: none; transition: opacity .1s linear, translate .18s cubic-bezier(.1, .85, .2, 1), filter .18s linear; transition-delay: calc(var(--i) * 470ms + 60ms); }
-
-  /* odometer digits blur while they roll, hard stop */
-  html[data-motion] .odo-strip { transition: transform .75s cubic-bezier(.16, .84, .14, 1), filter .75s cubic-bezier(.6, 0, .9, .4); filter: blur(2.5px); }
-  html[data-motion] .odo-strip.done { filter: none; }
+  html[data-motion] .bar .ext.grown { transform: none; transition: transform .6s steps(6, end); }
 </style>
 </head>
 <body>
 
-<div class="container">
+<div class="desk">
 
-  <!-- TOP BAR -->
-  <div class="topbar" data-rv>
-    <div class="topbar-left">
-      <span class="dot"></span>
-      <span class="tag">Available for collaborations</span>
-    </div>
-    <div class="topbar-right tag">
-      <span class="hide-sm">Commercials</span>
-      <span class="sep hide-sm">·</span>
-      <span>October 2026</span>
-    </div>
+  <!-- TOP STRIP -->
+  <div class="topstrip">
+    <span class="dymo">Rate card · Oct 2026</span>
+    <span class="avail dymo"><span class="bulb" aria-hidden="true"></span>Available for collaborations</span>
   </div>
 
   <!-- HERO -->
-  <header class="hero">
-    <div class="portrait paper mat" data-fx="fade" data-rv>
-      <div class="frame"><img src="assets/avatar.jpg" alt="Shivam Meet" width="600" height="600"></div>
-      <div class="caption tag"><span>@meet_.shivam</span><span>IN</span></div>
-    </div>
-    <div class="hero-text">
-      <span class="tag">Creator · Product and Growth Consulting</span>
-      <h1 data-fx="karaoke" data-rate="230" data-rv>Shivam <em>Meet</em></h1>
-      <div class="credentials" data-fx="pop" data-rv style="--d: 420ms">
-        <span class="cred solid">1× Founder</span>
-        <span class="cred">Ex KPMG, Juspay, GoKwik, Publicis Sapient</span>
+  <header class="hero sheet torn-top lifted" data-rv>
+    <span class="tape tl"></span><span class="tape t2 tr"></span>
+    <figure class="photo">
+      <img src="assets/avatar.jpg" alt="Shivam Meet" width="600" height="600">
+      <figcaption>@meet_.shivam</figcaption>
+    </figure>
+    <div>
+      <div class="role" data-type>Creator | Product and Growth Consulting</div>
+      <h1>Shivam Meet</h1>
+      <div class="creds">
+        <span class="dymo red">1× Founder</span>
+        <span class="dymo">Ex KPMG · Juspay · GoKwik · Publicis Sapient</span>
       </div>
-      <p class="tag-line" data-fx="karaoke" data-rate="55" data-delay="650" data-rv>I position myself as <em class="mark ul red">a guide to becoming a polymath</em>: growth, careers, mindset, life. Working <strong>ONLY</strong> with brands that resonate with, and add genuine value to, my followers.</p>
+      <p class="tagline">I position myself as <span class="marked" data-pen="underline">a guide to becoming a polymath</span>: growth, careers, mindset, life. Working <strong>ONLY</strong> with brands that resonate with, and add genuine value to, my followers.</p>
     </div>
   </header>
 
   <!-- METRICS -->
   <section>
-    <div class="slip" data-rv><span class="n">01</span>current metrics</div>
-    <div class="stats paper mat" data-fx="fade" data-rv>
+    <h2 class="print-title">Current metrics</h2>
+    <div class="stats sheet lifted" data-rv style="margin-top: 26px">
+      <span class="tape tc"></span>
       <div class="stat">
-        <div class="stat-label tag">Followers</div>
+        <div class="stat-label">Followers</div>
         <div class="stat-value">132K<span class="accent">+</span></div>
         <div class="stat-sub">Joined the 100K club</div>
       </div>
       <div class="stat">
-        <div class="stat-label tag">Views · Last 30 days</div>
+        <div class="stat-label">Views · Last 30 days</div>
         <div class="stat-value">5M<span class="accent">+</span></div>
         <div class="stat-sub">Across reels and stories</div>
       </div>
       <div class="stat">
-        <div class="stat-label tag">Daily Growth</div>
+        <div class="stat-label">Daily Growth</div>
         <div class="stat-value">850<span class="accent">+</span></div>
         <div class="stat-sub">New followers every day</div>
       </div>
       <div class="stat">
-        <div class="stat-label tag">Amplification</div>
+        <div class="stat-label">Amplification</div>
         <div class="stat-value">~300<span class="accent">×</span></div>
         <div class="stat-sub">Views to follower ratio</div>
       </div>
     </div>
-    <p class="audience-note tag" data-fx="fade" data-rv style="--d: 900ms">Audience · ambitious students and early-career professionals · ages 16 to 28 · all streams · India</p>
+    <p class="audience sheet torn-bottom lifted" data-rv style="--d: 200ms">Audience: ambitious students &amp; early-career professionals, ages 16 to 28, all streams, India</p>
   </section>
 
   <!-- LONG-TERM PARTNERSHIPS -->
   <section>
-    <div class="slip" data-rv>long-term partnerships</div>
-    <div class="partners-grid" data-fx="drop" data-rv>
-      <div class="partner-card paper">
-        <div class="partner-logo"><img src="assets/wispr-ai.svg" alt="Wispr AI"></div>
-        <div class="partner-name">Wispr AI</div>
-        <div class="partner-desc">Dedicated Creator Partnership</div>
+    <h2 class="print-title">Long-term partnerships</h2>
+    <div class="prints" data-group style="margin-top: 44px">
+      <div class="print" data-rv><span class="tape tc"></span>
+        <div class="logo"><img src="assets/wispr-ai.svg" alt="Wispr AI"></div>
+        <div class="name">Wispr AI</div><div class="desc">Dedicated Creator Partnership</div>
       </div>
-      <div class="partner-card paper">
-        <div class="partner-logo"><img src="assets/matiks.png" alt="Matiks"></div>
-        <div class="partner-name">Matiks</div>
-        <div class="partner-desc">Dedicated Creator Partnership</div>
+      <div class="print" data-rv><span class="tape t2 tc"></span>
+        <div class="logo"><img src="assets/matiks.png" alt="Matiks"></div>
+        <div class="name">Matiks</div><div class="desc">Dedicated Creator Partnership</div>
       </div>
-      <div class="partner-card paper">
-        <div class="partner-logo"><img src="assets/emergent.jpg" alt="Emergent"></div>
-        <div class="partner-name">Emergent</div>
-        <div class="partner-desc">Integrated ad partner</div>
+      <div class="print" data-rv><span class="tape t4 tc"></span>
+        <div class="logo"><img src="assets/emergent.jpg" alt="Emergent"></div>
+        <div class="name">Emergent</div><div class="desc">Integrated ad partner</div>
       </div>
-      <div class="partner-card paper">
-        <div class="partner-logo"><img src="assets/saregama.png" alt="Saregama"></div>
-        <div class="partner-name">Saregama</div>
-        <div class="partner-desc">Dedicated Reel</div>
+      <div class="print" data-rv><span class="tape tc"></span>
+        <div class="logo"><img src="assets/saregama.png" alt="Saregama"></div>
+        <div class="name">Saregama</div><div class="desc">Dedicated Reel</div>
       </div>
-      <div class="partner-card paper">
-        <div class="partner-logo"><img src="assets/oswaal-books.jpg" alt="Oswaal Books"></div>
-        <div class="partner-name">Oswaal Books</div>
-        <div class="partner-desc">India's leading exam-prep publisher</div>
+      <div class="print" data-rv><span class="tape t2 tc"></span>
+        <div class="logo"><img src="assets/oswaal-books.jpg" alt="Oswaal Books"></div>
+        <div class="name">Oswaal Books</div><div class="desc">India's leading exam-prep publisher</div>
       </div>
-      <div class="partner-card paper">
-        <div class="partner-logo"><img src="assets/sda-bocconi.jpg" alt="SDA Bocconi"></div>
-        <div class="partner-name">SDA Bocconi</div>
-        <div class="partner-desc">Dedicated Reel</div>
+      <div class="print" data-rv><span class="tape t4 tc"></span>
+        <div class="logo"><img src="assets/sda-bocconi.jpg" alt="SDA Bocconi"></div>
+        <div class="name">SDA Bocconi</div><div class="desc">Dedicated Reel</div>
       </div>
-      <div class="partner-card paper">
-        <div class="partner-logo"><img src="assets/slice-bank.jpg" alt="Slice Bank"></div>
-        <div class="partner-name">Slice Bank</div>
-        <div class="partner-desc">Dedicated Reel</div>
+      <div class="print" data-rv><span class="tape tc"></span>
+        <div class="logo"><img src="assets/slice-bank.jpg" alt="Slice Bank"></div>
+        <div class="name">Slice Bank</div><div class="desc">Dedicated Reel</div>
       </div>
     </div>
   </section>
 
   <!-- REEL OFFERINGS -->
   <section>
-    <div class="slip" data-rv><span class="n">02</span>reel offerings</div>
-    <h2 class="section-heading" data-fx="karaoke" data-rv>Reels, scripted and shot <em>for your brand.</em></h2>
-    <div class="tiers" data-fx="deal" data-rv>
-      <div class="tier paper mat" style="--r: -6deg">
-        <span class="stamp">Most Booked</span>
-        <div class="tier-letter tag">A · Brand Integration</div>
-        <div class="tier-name">Integrated Reel</div>
-        <div class="tier-price" data-odo>$750<span class="to"> to </span>$850</div>
-        <div class="tier-spec tag">35 to 45 sec · embedded</div>
-        <div class="tier-divider"></div>
-        <div class="tier-desc">Increase brand awareness through seamless placement of your product or tool within Shivam's content rhythm. Lightweight, native, high trust.</div>
-        <div class="tier-example"><span class="tag">Currently used by</span><strong>Matiks</strong> (2 reels/month) &nbsp;·&nbsp; <strong>Emergent</strong></div>
+    <h2 class="print-title">Reel offerings</h2>
+    <p class="slip sheet lifted" data-type>Reels, scripted and shot for your brand.</p>
+    <div class="tickets" data-group>
+      <div class="ticket-wrap" data-rv>
+        <div class="booked" aria-hidden="true"><span class="hand">most booked</span><svg viewBox="0 0 46 40"><path d="M4 6 C 22 6, 34 14, 38 34 M 29 27 L 38 35 L 43 24"/></svg></div>
+        <article class="ticket manila">
+          <div class="stub"><span class="letter">A</span><span class="vert">Brand Integration</span></div>
+          <div class="ticket-body">
+            <span class="kind">A · Brand Integration</span>
+            <h3 class="name">Integrated Reel</h3>
+            <div class="price">$750 <span class="to">to</span> $850</div>
+            <div class="spec">35 to 45 sec · embedded</div>
+            <p class="desc">Increase brand awareness through seamless placement of your product or tool within Shivam's content rhythm. Lightweight, native, high trust.</p>
+            <div class="used"><span class="typed">Currently used by</span><b>Matiks</b> (2 reels/month) · <b>Emergent</b></div>
+            <div class="actions"><button class="key add" data-add="integrated" type="button">+ Add to order</button><span class="incount" data-count="integrated"></span></div>
+          </div>
+        </article>
       </div>
-      <div class="tier paper mat" style="--r: 5deg">
-        <div class="tier-letter tag">B · Brand Ad</div>
-        <div class="tier-name">Dedicated Ad Reel</div>
-        <div class="tier-price" data-odo>$950<span class="to"> to </span>$1,200</div>
-        <div class="tier-spec tag">45 sec to 1 min · dedicated</div>
-        <div class="tier-divider"></div>
-        <div class="tier-desc">Brands and campaigns Shivam vouches for, leading to paying users via a dedicated ad. Ideal for higher-ticket products like colleges and courses.</div>
-        <div class="tier-example"><span class="tag">Currently used by</span><strong>Saregama · SDA Bocconi · Oswaal Books</strong></div>
+      <div class="ticket-wrap" data-rv>
+        <article class="ticket manila">
+          <div class="stub"><span class="letter">B</span><span class="vert">Brand Ad</span></div>
+          <div class="ticket-body">
+            <span class="kind">B · Brand Ad</span>
+            <h3 class="name">Dedicated Ad Reel</h3>
+            <div class="price">$950 <span class="to">to</span> $1,200</div>
+            <div class="spec">45 sec to 1 min · dedicated</div>
+            <p class="desc">Brands and campaigns Shivam vouches for, leading to paying users via a dedicated ad. Ideal for higher-ticket products like colleges and courses.</p>
+            <div class="used"><span class="typed">Currently used by</span><b>Saregama · SDA Bocconi · Oswaal Books</b></div>
+            <div class="actions"><button class="key add" data-add="dedicated" type="button">+ Add to order</button><span class="incount" data-count="dedicated"></span></div>
+          </div>
+        </article>
       </div>
     </div>
-    <p class="rates-note" data-fx="fade" data-rv style="--d: 300ms">Rates are negotiable based on brand fit and projected reach.</p>
+    <p class="rates-note sheet lifted" data-rv>Rates are negotiable based on brand fit and projected reach.</p>
 
-    <div data-fx="slide" data-rv>
-      <div class="package-callout paper">
-        <span class="tag">Volume package</span>
-        <div class="package-callout-body">
-          <strong>Long-term partners booking more than 4 reels:</strong> happy to do <span class="package-discount mark ul sage">20% off</span> on the combined price of reels &amp; stories. <span class="package-note">Ad pricing stays the same.</span>
-        </div>
-      </div>
+    <div class="package sheet torn-top torn-bottom lifted" data-rv>
+      <span class="dymo">Volume package</span>
+      <p><b>Long-term partners booking more than 4 reels:</b> happy to do <span class="marked" data-pen="ring">20% off</span> on the combined price of reels &amp; stories. <i>Ad pricing stays the same.</i></p>
     </div>
   </section>
 
   <!-- ADD-ONS -->
   <section>
-    <div class="slip" data-rv><span class="n">03</span>add-ons</div>
-    <div class="addons" data-fx="slide" data-rv>
-      <div class="addon paper">
-        <div class="addon-info">
-          <div class="addon-name">Instagram Story (standalone)</div>
-          <div class="addon-meta">Avg. 15K views per story</div>
-        </div>
-        <div class="addon-price" data-odo>$250</div>
+    <h2 class="print-title">Add-ons</h2>
+    <div class="addons" data-group style="margin-top: 40px">
+      <div class="ticket-wrap" data-rv>
+        <article class="ticket manila">
+          <div class="stub"><span class="vert">Add-on</span></div>
+          <div class="ticket-body">
+            <div class="addon-info"><h3 class="addon-name">Instagram Story (standalone)</h3><div class="addon-meta">Avg. 15K views per story</div></div>
+            <div class="addon-price">$250</div>
+            <button class="key small add" data-add="story" type="button">+ Add</button><span class="incount" data-count="story"></span>
+          </div>
+        </article>
       </div>
-      <div class="addon paper">
-        <div class="addon-info">
-          <div class="addon-name">Lead Magnet / Resource</div>
-          <div class="addon-meta">Email or phone number collector</div>
-        </div>
-        <div class="addon-price" data-odo>$250</div>
+      <div class="ticket-wrap" data-rv>
+        <article class="ticket manila">
+          <div class="stub"><span class="vert">Add-on</span></div>
+          <div class="ticket-body">
+            <div class="addon-info"><h3 class="addon-name">Lead Magnet / Resource</h3><div class="addon-meta">Email or phone number collector</div></div>
+            <div class="addon-price">$250</div>
+            <button class="key small add" data-add="lead" type="button">+ Add</button><span class="incount" data-count="lead"></span>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- AD / BOOSTING RIGHTS -->
   <section>
-    <div class="slip" data-rv><span class="n">04</span>ad and boosting rights</div>
-    <h2 class="section-heading" data-fx="karaoke" data-rv>Want to put paid spend <em>behind the reel?</em></h2>
-    <p class="lede" data-fx="fade" data-rv style="--d: 200ms">Brands often want to extend organic performance with paid distribution. Boosting and ad rights are charged on top of the reel price, at the rates below.</p>
-    <div class="boosting-grid" data-fx="deal" data-rv>
-      <div class="boost-card paper mat" style="--r: -5deg">
-        <div class="boost-duration tag">15 days</div>
-        <div class="boost-price"><span class="sym">+</span><span data-step="50">50</span><span class="sym">%</span></div>
+    <h2 class="print-title">Ad &amp; boosting rights</h2>
+    <p class="slip sheet lifted" data-type>Want to put paid spend behind the reel?</p>
+    <p class="lede sheet torn-bottom lifted" data-rv>Brands often want to extend organic performance with paid distribution. Boosting and ad rights are charged on top of the reel price, at the rates below.</p>
+    <div class="cards" data-group>
+      <div class="card" data-rv><span class="tape tc"></span>
+        <div class="dur">15 days</div>
+        <div class="big"><span class="sym">+</span>50<span class="sym">%</span></div>
         <div class="bar" aria-hidden="true"><span class="base"></span><span class="ext" style="flex: 0 0 27%"></span></div>
-        <div class="bar-key tag" aria-hidden="true"><span>Reel price</span><span>+50%</span></div>
-        <div class="boost-desc">of the final agreed reel price for 15 days of boosting / ad rights.</div>
+        <div class="bar-key" aria-hidden="true"><span>Reel price</span><span>+50%</span></div>
+        <p>of the final agreed reel price for 15 days of boosting / ad rights.</p>
+        <button class="key light small" data-rights="15" type="button">Use 15 days in my order</button>
       </div>
-      <div class="boost-card paper mat" style="--r: 6deg">
-        <div class="boost-duration tag">30 days</div>
-        <div class="boost-price"><span class="sym">+</span><span data-step="85">85</span><span class="sym">%</span></div>
+      <div class="card" data-rv><span class="tape t2 tc"></span>
+        <div class="dur">30 days</div>
+        <div class="big"><span class="sym">+</span>85<span class="sym">%</span></div>
         <div class="bar" aria-hidden="true"><span class="base"></span><span class="ext" style="flex: 0 0 45.9%"></span></div>
-        <div class="bar-key tag" aria-hidden="true"><span>Reel price</span><span>+85%</span></div>
-        <div class="boost-desc">of the final agreed reel price for 30 days of boosting / ad rights.</div>
+        <div class="bar-key" aria-hidden="true"><span>Reel price</span><span>+85%</span></div>
+        <p>of the final agreed reel price for 30 days of boosting / ad rights.</p>
+        <button class="key light small" data-rights="30" type="button">Use 30 days in my order</button>
       </div>
     </div>
   </section>
 
   <!-- STANDARD TERMS -->
   <section>
-    <div class="slip" data-rv><span class="n">05</span>standard terms</div>
-    <h2 class="section-heading" data-fx="karaoke" data-rv>The way we work, <em>on paper.</em></h2>
-    <div class="terms-grid" data-fx="deal" data-rv>
-      <div class="term-card paper" style="--r: -8deg">
-        <span class="tag">01</span>
-        <div class="term-label">Payment</div>
-        <div class="term-desc"><strong>50% advance</strong> before production begins. Balance on delivery, before posting.</div>
-      </div>
-      <div class="term-card paper" style="--r: 6deg">
-        <span class="tag">02</span>
-        <div class="term-label">Creative Control</div>
-        <div class="term-desc">Stays with Shivam. Brand approves concept and key messaging, not line-by-line script.</div>
-      </div>
-      <div class="term-card paper" style="--r: -5deg">
-        <span class="tag">03</span>
-        <div class="term-label">Runtime</div>
-        <div class="term-desc">Content stays live on the profile for a <strong>minimum of 30 days</strong>.</div>
-      </div>
-      <div class="term-card paper" style="--r: 8deg">
-        <span class="tag">04</span>
-        <div class="term-label">Turnaround</div>
-        <div class="term-desc"><strong>6 to 7 working days</strong> from concept approval to publish-ready.</div>
-      </div>
+    <h2 class="print-title">Standard terms</h2>
+    <p class="slip sheet lifted" data-type>The way we work, on paper.</p>
+    <div class="tags" data-group>
+      <div class="tag-wrap" data-rv><div class="luggage manila"><span class="no">No. 01</span><h3>Payment</h3><p><b>50% advance</b> before production begins. Balance on delivery, before posting.</p></div></div>
+      <div class="tag-wrap" data-rv><div class="luggage manila"><span class="no">No. 02</span><h3>Creative Control</h3><p>Stays with Shivam. Brand approves concept and key messaging, not line-by-line script.</p></div></div>
+      <div class="tag-wrap" data-rv><div class="luggage manila"><span class="no">No. 03</span><h3>Runtime</h3><p>Content stays live on the profile for a <b>minimum of 30 days</b>.</p></div></div>
+      <div class="tag-wrap" data-rv><div class="luggage manila"><span class="no">No. 04</span><h3>Turnaround</h3><p><b>6 to 7 working days</b> from concept approval to publish-ready.</p></div></div>
     </div>
   </section>
 
   <!-- PROCESS -->
   <section>
-    <div class="slip" data-rv><span class="n">06</span>process</div>
-    <ol class="process" data-rv>
-      <li style="--i: 0"><span class="num">01</span><p>You share product details, key messaging, and compliance needs.</p></li>
-      <li style="--i: 1"><span class="num">02</span><p>2 to 3 hook options with a concept note are drafted.</p></li>
-      <li style="--i: 2"><span class="num">03</span><p>Full script with visual directions shared for sign-off.</p></li>
-      <li style="--i: 3"><span class="num">04</span><p>Filmed, edited, captioned. Trial reel posted the night before.</p></li>
-      <li style="--i: 4"><span class="num">05</span><p>Live on the page the next morning, on the agreed date.</p></li>
-    </ol>
+    <h2 class="print-title">Process</h2>
+    <div class="notebook" data-rv style="margin-top: 40px"><span class="tape tl"></span><span class="tape t4 tr"></span>
+      <ol>
+        <li><span class="n">1.</span><span data-type>You share product details, key messaging, and compliance needs.</span></li>
+        <li><span class="n">2.</span><span data-type>2 to 3 hook options with a concept note are drafted.</span></li>
+        <li><span class="n">3.</span><span data-type>Full script with visual directions shared for sign-off.</span></li>
+        <li><span class="n">4.</span><span data-type>Filmed, edited, captioned. Trial reel posted the night before.</span></li>
+        <li><span class="n">5.</span><span data-type>Live on the page the next morning, on the agreed date.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ORDER BUILDER -->
+  <section id="order">
+    <h2 class="print-title">Build your order</h2>
+    <div class="order-grid" style="margin-top: 40px">
+      <div class="order-help sheet torn-top lifted" data-rv>
+        <p>Add reels and add-ons from the cards above, or use the counters on the receipt. Pick ad rights if you want to boost.</p>
+        <p>The estimate uses the published rates: more than 4 reels takes 20% off reels and stories, and ad rights are charged on the reel price.</p>
+        <p>Send it over and you'll hear back within 24 hours.</p>
+        <span class="hand">everything is in USD</span>
+      </div>
+      <div class="receipt-wrap" data-rv style="--d: 120ms">
+        <div class="receipt" id="receipt" aria-live="polite">
+          <div class="head"><b>Collab order</b><span>Shivam Meet · @meet_.shivam</span></div>
+          <div id="lines"></div>
+          <div class="rights">
+            <span class="what">Ad &amp; boosting rights</span>
+            <div class="seg" role="group" aria-label="Ad and boosting rights">
+              <button type="button" data-seg="0" aria-pressed="true">None</button>
+              <button type="button" data-seg="15" aria-pressed="false">15 days<br>+50%</button>
+              <button type="button" data-seg="30" aria-pressed="false">30 days<br>+85%</button>
+            </div>
+          </div>
+          <div id="sums"></div>
+          <div class="acts">
+            <a class="key" id="send" href="mailto:shivammeet7@gmail.com">Email this order</a>
+            <button class="key light" id="copyorder" type="button">Copy</button>
+          </div>
+          <button class="clear" id="clear" type="button">Clear the order</button>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- CONTACT -->
   <section style="margin-bottom: 0;">
-    <div class="contact paper mat" data-fx="fade" data-rv>
-      <span class="tag">Let's build something that performs</span>
-      <h2 class="contact-heading" data-fx="karaoke" data-rate="260" data-delay="200" data-rv>Get in <em>touch.</em></h2>
-      <p class="contact-sub">Reply within 24 hours · Working with brands across India</p>
-      <div class="socials" data-fx="pop" data-rv style="--d: 500ms">
-        <button type="button" class="social-btn primary copy-btn" data-copy="shivammeet7@gmail.com" title="Click to copy">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-          <span class="btn-label">shivammeet7@gmail.com</span>
+    <div class="contact sheet torn-top lifted" data-rv>
+      <span class="tape tl"></span><span class="tape t2 tr"></span>
+      <div class="lead" data-type>Let's build something that performs</div>
+      <h2>Get in touch.</h2>
+      <p class="sub">Reply within 24 hours · Working with brands across India</p>
+      <div class="socials">
+        <button type="button" class="key copy-btn" data-copy="shivammeet7@gmail.com" title="Click to copy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          <span class="label">shivammeet7@gmail.com</span>
         </button>
-        <button type="button" class="social-btn copy-btn" data-copy="+91 97590 72121" title="Click to copy">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-          <span class="btn-label">+91 97590 72121</span>
+        <button type="button" class="key light copy-btn" data-copy="+91 97590 72121" title="Click to copy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <span class="label">+91 97590 72121</span>
         </button>
-        <a href="https://instagram.com/meet_.shivam" target="_blank" rel="noopener" class="social-btn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-          <span class="btn-label">@meet_.shivam</span>
+        <a href="https://instagram.com/meet_.shivam" target="_blank" rel="noopener" class="key light">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          <span class="label">@meet_.shivam</span>
         </a>
-        <a href="https://linkedin.com/in/shivammeet" target="_blank" rel="noopener" class="social-btn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-          <span class="btn-label">/in/shivammeet</span>
+        <a href="https://linkedin.com/in/shivammeet" target="_blank" rel="noopener" class="key light">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          <span class="label">/in/shivammeet</span>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER META -->
-  <div class="footer-meta tag" data-rv>
-    <div>© Shivam Meet · 2026</div>
-    <div>Rate card · October 2026</div>
+  <div class="footer">
+    <span>© Shivam Meet · 2026</span>
+    <span>Rate card · October 2026</span>
   </div>
 
 </div>
+
+<a class="order-tab manila" id="ordertab" href="#order" aria-label="Go to your order"><b>Your order</b><span id="tabsum"></span></a>
 
 <script>
 (function () {
   var html = document.documentElement;
   var motion = html.hasAttribute('data-motion');
   var SVGNS = 'http://www.w3.org/2000/svg';
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
 
-  /* ---------- copy buttons (always on) ---------- */
-  document.querySelectorAll('.copy-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var text = btn.dataset.copy;
-      var done = function () {
-        var old = btn.querySelector('.stamp-mini');
-        if (old) old.remove();
-        var s = document.createElement('span');
-        s.className = 'stamp-mini';
-        s.textContent = 'copied';
-        btn.appendChild(s);
-        setTimeout(function () { s.remove(); }, 1600);
-      };
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(text).then(done).catch(function () { fallbackCopy(text, done); });
-      } else {
-        fallbackCopy(text, done);
-      }
+  /* ================= order builder ================= */
+  var ITEMS = {
+    integrated: { name: 'Integrated Reel', lo: 750, hi: 850, reel: true, disc: true },
+    dedicated:  { name: 'Dedicated Ad Reel', lo: 950, hi: 1200, reel: true, disc: true },
+    story:      { name: 'Instagram Story (standalone)', lo: 250, hi: 250, reel: false, disc: true },
+    lead:       { name: 'Lead Magnet / Resource', lo: 250, hi: 250, reel: false, disc: false }
+  };
+  var RIGHTS = { '0': 0, '15': 0.5, '30': 0.85 };
+  var state = { qty: { integrated: 0, dedicated: 0, story: 0, lead: 0 }, rights: '0' };
+  try { var saved = JSON.parse(localStorage.getItem('collab-order') || 'null'); if (saved && saved.qty) state = saved; } catch (e) {}
+
+  function usd(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
+  function range(lo, hi) { return lo === hi ? usd(lo) : usd(lo) + ' to ' + usd(hi); }
+
+  function calc() {
+    var q = state.qty, reels = { lo: 0, hi: 0 }, disc = { lo: 0, hi: 0 }, all = { lo: 0, hi: 0 }, n = 0, count = 0;
+    Object.keys(ITEMS).forEach(function (k) {
+      var it = ITEMS[k], c = q[k] || 0; count += c;
+      all.lo += c * it.lo; all.hi += c * it.hi;
+      if (it.reel) { n += c; reels.lo += c * it.lo; reels.hi += c * it.hi; }
+      if (it.disc) { disc.lo += c * it.lo; disc.hi += c * it.hi; }
     });
+    var volume = n > 4;
+    var off = volume ? { lo: disc.lo * 0.2, hi: disc.hi * 0.2 } : { lo: 0, hi: 0 };
+    var rate = RIGHTS[state.rights] || 0;
+    var ads = { lo: reels.lo * rate, hi: reels.hi * rate };
+    return { count: count, reels: n, volume: volume, sub: all, off: off, ads: ads, rate: rate,
+      total: { lo: all.lo - off.lo + ads.lo, hi: all.hi - off.hi + ads.hi } };
+  }
+
+  function render() {
+    var c = calc();
+    $('#lines').innerHTML = Object.keys(ITEMS).map(function (k) {
+      var it = ITEMS[k], q = state.qty[k] || 0;
+      return '<div class="line' + (q ? '' : ' off') + '">' +
+        '<span class="what">' + it.name + '</span>' +
+        '<span class="amt">' + (q ? range(q * it.lo, q * it.hi) : '$0') + '</span>' +
+        '<span class="unit">' + range(it.lo, it.hi) + ' each</span>' +
+        '<span class="stepper"><button type="button" data-step="' + k + '" data-by="-1" aria-label="One less ' + it.name + '">−</button>' +
+        '<output aria-label="' + it.name + ' quantity">' + q + '</output>' +
+        '<button type="button" data-step="' + k + '" data-by="1" aria-label="One more ' + it.name + '">+</button></span>' +
+        '</div>';
+    }).join('');
+
+    var sums = '';
+    if (!c.count) {
+      sums = '<div class="empty">add a reel to start</div>';
+    } else {
+      sums += '<div class="sumline"><span>Subtotal</span><span>' + range(c.sub.lo, c.sub.hi) + '</span></div>';
+      if (c.volume) sums += '<div class="sumline red"><span>Volume package, 20% off reels &amp; stories</span><span>−' + range(c.off.lo, c.off.hi) + '</span></div>';
+      else if (c.reels > 0) sums += '<div class="sumline"><span>' + (5 - c.reels) + ' more reel' + (5 - c.reels === 1 ? '' : 's') + ' unlocks 20% off</span><span></span></div>';
+      if (c.rate && c.reels) sums += '<div class="sumline"><span>Ad rights, ' + state.rights + ' days (+' + Math.round(c.rate * 100) + '% of reel price)</span><span>+' + range(c.ads.lo, c.ads.hi) + '</span></div>';
+      if (c.rate && !c.reels) sums += '<div class="sumline"><span>Ad rights apply once a reel is added</span><span></span></div>';
+      sums += '<div class="total"><b>Estimate</b><span class="val">' + range(c.total.lo, c.total.hi) + '</span></div>';
+      sums += '<p class="fine">Estimate in USD from the published rates. Final quote confirmed over email.</p>';
+    }
+    $('#sums').innerHTML = sums;
+
+    $$('.seg button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.seg === state.rights)); });
+    $$('[data-count]').forEach(function (el) { var q = state.qty[el.dataset.count]; el.textContent = q ? 'x' + q + ' in order' : ''; });
+
+    var tab = $('#ordertab');
+    $('#tabsum').textContent = c.count ? c.count + ' item' + (c.count === 1 ? '' : 's') + ' · ' + range(c.total.lo, c.total.hi) : '';
+    tab.classList.toggle('show', c.count > 0);
+
+    $('#send').href = 'mailto:shivammeet7@gmail.com?subject=' + encodeURIComponent('Collab order enquiry') + '&body=' + encodeURIComponent(orderText(c));
+    try { localStorage.setItem('collab-order', JSON.stringify(state)); } catch (e) {}
+  }
+
+  function orderText(c) {
+    c = c || calc();
+    var out = ['Hi Shivam,', '', "Here's the collab order I'm thinking about:", ''];
+    Object.keys(ITEMS).forEach(function (k) {
+      var q = state.qty[k];
+      if (q) out.push(q + ' x ' + ITEMS[k].name + ' (' + range(ITEMS[k].lo, ITEMS[k].hi) + ' each)');
+    });
+    if (c.rate && c.reels) out.push('Ad and boosting rights: ' + state.rights + ' days (+' + Math.round(c.rate * 100) + '% of reel price)');
+    if (c.volume) out.push('Volume package: 20% off reels and stories');
+    if (c.count) out.push('', 'Estimate: ' + range(c.total.lo, c.total.hi) + ' (USD)');
+    out.push('', 'Brand:', 'Product / campaign:', 'Preferred dates:', '');
+    return out.join('\n');
+  }
+
+  function bump(k, by) {
+    state.qty[k] = Math.max(0, Math.min(20, (state.qty[k] || 0) + by));
+    render();
+  }
+
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-add], [data-step], [data-seg], [data-rights], #clear, #copyorder');
+    if (!t) return;
+    if (t.dataset.add) bump(t.dataset.add, 1);
+    else if (t.dataset.step) bump(t.dataset.step, +t.dataset.by);
+    else if (t.dataset.seg !== undefined) { state.rights = t.dataset.seg; render(); }
+    else if (t.dataset.rights) { state.rights = t.dataset.rights; render(); note(t, 'set!'); }
+    else if (t.id === 'clear') { state = { qty: { integrated: 0, dedicated: 0, story: 0, lead: 0 }, rights: '0' }; render(); }
+    else if (t.id === 'copyorder') { copy(orderText(), function () { note(t, 'copied!'); }); }
   });
-  function fallbackCopy(text, ok) {
+  render();
+
+  /* the order tag steps aside while the receipt itself is on screen */
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) { $('#ordertab').classList.toggle('away', e.isIntersecting); });
+    }, { threshold: 0.15 }).observe($('#receipt'));
+  }
+
+  /* ================= copy helpers ================= */
+  function note(btn, text) {
+    var old = btn.querySelector('.copied'); if (old) old.remove();
+    var s = document.createElement('span'); s.className = 'copied'; s.textContent = text;
+    btn.appendChild(s); setTimeout(function () { s.remove(); }, 1500);
+  }
+  function copy(text, ok) {
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(ok).catch(function () { fallback(text, ok); });
+    } else fallback(text, ok);
+  }
+  function fallback(text, ok) {
     var ta = document.createElement('textarea');
     ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'absolute'; ta.style.left = '-9999px';
     document.body.appendChild(ta); ta.select();
     try { document.execCommand('copy'); ok && ok(); } catch (e) {}
     document.body.removeChild(ta);
   }
+  $$('.copy-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () { copy(btn.dataset.copy, function () { note(btn, 'copied!'); }); });
+  });
 
-  /* ---------- hand-drawn marks (drawn statically when motion is off) ---------- */
-  var UL = 'M2 7 C 40 3, 85 9, 128 5 S 182 3, 198 6';
-  var RING = 'M30 70 C 6 52, 22 14, 96 10 C 168 6, 196 30, 188 56 C 180 82, 112 92, 62 86 C 22 81, 8 60, 26 40 C 40 26, 70 20, 104 18';
-  function addSvg(host, d, vb, cls) {
-    var svg = document.createElementNS(SVGNS, 'svg');
-    svg.setAttribute('viewBox', vb);
-    svg.setAttribute('preserveAspectRatio', 'none');
-    svg.setAttribute('aria-hidden', 'true');
-    if (cls) svg.setAttribute('class', cls);
-    var p = document.createElementNS(SVGNS, 'path');
-    p.setAttribute('d', d);
-    p.setAttribute('pathLength', '1');
-    p.setAttribute('vector-effect', 'non-scaling-stroke');
-    svg.appendChild(p);
-    host.appendChild(svg);
+  /* ================= pen marks ================= */
+  var PATHS = {
+    underline: ['0 0 200 12', 'M2 8 C 40 3, 85 10, 128 6 S 182 3, 198 7'],
+    ring: ['0 0 200 100', 'M34 72 C 8 54, 20 16, 96 10 C 170 4, 198 30, 190 56 C 182 84, 112 94, 60 88 C 20 83, 6 60, 26 40 C 40 26, 72 18, 108 18']
+  };
+  function pen(host, kind) {
+    var p = PATHS[kind], svg = document.createElementNS(SVGNS, 'svg');
+    svg.setAttribute('viewBox', p[0]); svg.setAttribute('preserveAspectRatio', 'none');
+    svg.setAttribute('class', 'pen'); svg.setAttribute('aria-hidden', 'true');
+    var path = document.createElementNS(SVGNS, 'path');
+    path.setAttribute('d', p[1]); path.setAttribute('pathLength', '1'); path.setAttribute('vector-effect', 'non-scaling-stroke');
+    svg.appendChild(path); host.appendChild(svg);
     return svg;
   }
-  document.querySelectorAll('.mark.ul').forEach(function (m) { addSvg(m, UL, '0 0 200 12'); });
-  var followers = document.querySelector('.stat-value');
-  var ring = addSvg(followers, RING, '0 0 200 100', 'ring');
+  $$('[data-pen]').forEach(function (el) { pen(el, el.dataset.pen); });
+  var followers = $('.stat-value');
+  var ring = pen(followers, 'ring');
+
+  /* ================= mechanical counters ================= */
+  $$('.stat-value').forEach(function (el) {
+    var said = el.textContent.replace(/\s+/g, ' ').trim();
+    var kids = [];
+    (function walk(node, accent) {
+      Array.prototype.slice.call(node.childNodes).forEach(function (c) {
+        if (c.nodeType === 3) c.textContent.split('').forEach(function (ch) { if (ch.trim()) kids.push({ ch: ch, accent: accent }); });
+        else if (c.nodeType === 1 && c.tagName !== 'svg') walk(c, accent || c.classList.contains('accent'));
+      });
+    })(el, false);
+    $$(':scope > :not(svg)', el).forEach(function (n) { n.remove(); });
+    Array.prototype.slice.call(el.childNodes).forEach(function (n) { if (n.nodeType === 3) n.remove(); });
+    kids.forEach(function (k) {
+      var w = document.createElement('span'); w.setAttribute('aria-hidden', 'true');
+      if (/\d/.test(k.ch)) {
+        w.className = 'wheel';
+        var g = document.createElement('span'); g.className = 'ghost'; g.textContent = k.ch; w.appendChild(g);
+        var s = document.createElement('span'); s.className = 'strip'; s.dataset.to = k.ch;
+        for (var i = 0; i <= 9; i++) { var d = document.createElement('span'); d.textContent = i; s.appendChild(d); }
+        if (motion) s.style.transform = 'translateY(0)'; else s.style.transform = 'translateY(' + (-1.25 * +k.ch) + 'em)';
+        w.appendChild(s);
+      } else {
+        w.className = 'plate' + (k.accent ? ' accent' : '');
+        w.textContent = k.ch;
+      }
+      el.insertBefore(w, el.querySelector('svg'));
+    });
+    var sr = document.createElement('span'); sr.className = 'sr'; sr.textContent = said; el.appendChild(sr);
+    el.setAttribute('role', 'button'); el.setAttribute('tabindex', '0');
+    el.setAttribute('aria-label', said + '. Press to recount.');
+    var hint = document.createElement('span'); hint.className = 'hint'; hint.textContent = 'tap to recount';
+    el.parentNode.appendChild(hint);
+    var go = function () { roll(el, 0, true); };
+    el.addEventListener('click', go);
+    el.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+  });
+
+  function roll(el, delay, reset) {
+    var strips = $$('.strip', el), longest = 0;
+    strips.forEach(function (s, i) {
+      var to = +s.dataset.to;
+      if (!motion) { s.style.transform = 'translateY(' + (-1.25 * to) + 'em)'; return; }
+      if (reset) {
+        s.style.transition = 'none';
+        s.style.transform = 'translateY(0)';
+        void s.offsetHeight;
+      }
+      var steps = Math.max(1, to);
+      var dur = steps * 70;
+      longest = Math.max(longest, delay + i * 110 + dur);
+      setTimeout(function () {
+        s.style.transition = 'transform ' + dur + 'ms steps(' + steps + ', end)';
+        s.style.transform = 'translateY(' + (-1.25 * to) + 'em)';
+      }, delay + i * 110);
+    });
+    return longest;
+  }
 
   if (!motion) return;
   html.setAttribute('data-booted', '');
 
-  /* ---------- prep: karaoke words ---------- */
-  document.querySelectorAll('[data-fx~="karaoke"]').forEach(function (el) {
-    wrapWords(el);
-  });
-  function wrapWords(node) {
-    Array.prototype.slice.call(node.childNodes).forEach(function (c) {
-      if (c.nodeType === 3) {
-        var parts = c.textContent.split(/(\s+)/);
-        var frag = document.createDocumentFragment();
-        parts.forEach(function (t) {
-          if (!t) return;
-          if (/^\s+$/.test(t)) { frag.appendChild(document.createTextNode(t)); return; }
-          var s = document.createElement('span'); s.className = 'kw'; s.textContent = t; frag.appendChild(s);
-        });
-        c.parentNode.replaceChild(frag, c);
-      } else if (c.nodeType === 1 && c.tagName !== 'svg') {
-        wrapWords(c);
-      }
-    });
-  }
-
-  /* ---------- prep: slips type character by character ---------- */
-  document.querySelectorAll('.slip').forEach(function (el) {
+  /* ================= typewriter ================= */
+  $$('[data-type]').forEach(function (el) {
     (function walk(node) {
       Array.prototype.slice.call(node.childNodes).forEach(function (c) {
         if (c.nodeType === 3) {
           var frag = document.createDocumentFragment();
-          c.textContent.split('').forEach(function (ch) {
-            var s = document.createElement('span'); s.className = 'ch'; s.textContent = ch; frag.appendChild(s);
-          });
+          c.textContent.split('').forEach(function (ch) { var s = document.createElement('span'); s.className = 'ch'; s.textContent = ch; frag.appendChild(s); });
           c.parentNode.replaceChild(frag, c);
         } else if (c.nodeType === 1) walk(c);
       });
     })(el);
   });
+  function type(el, delay) {
+    $$('.ch', el).forEach(function (c, i) { setTimeout(function () { c.classList.add('v'); }, delay + i * 26); });
+  }
 
-  /* ---------- prep: odometers on stats and prices ---------- */
-  var odos = Array.prototype.slice.call(document.querySelectorAll('.stat-value, [data-odo]'));
-  odos.forEach(function (el) {
-    var said = el.textContent.replace(/\s+/g, ' ').trim();
-    (function walk(node) {
-      Array.prototype.slice.call(node.childNodes).forEach(function (c) {
-        if (c.nodeType === 3) {
-          var frag = document.createDocumentFragment();
-          c.textContent.split('').forEach(function (ch) {
-            if (/\d/.test(ch)) {
-              var col = document.createElement('span'); col.className = 'odo-col'; col.setAttribute('aria-hidden', 'true');
-              var ghost = document.createElement('span'); ghost.className = 'ghost'; ghost.textContent = ch; col.appendChild(ghost);
-              var strip = document.createElement('span'); strip.className = 'odo-strip';
-              for (var k = 0; k <= 9; k++) { var d = document.createElement('span'); d.textContent = k; strip.appendChild(d); }
-              strip.dataset.to = ch;
-              col.appendChild(strip); frag.appendChild(col);
-            } else {
-              var t = document.createElement('span'); t.setAttribute('aria-hidden', 'true'); t.textContent = ch; frag.appendChild(t);
-            }
-          });
-          c.parentNode.replaceChild(frag, c);
-        } else if (c.nodeType === 1 && c.tagName !== 'svg') walk(c);
-      });
-    })(el);
-    var sr = document.createElement('span'); sr.className = 'sr'; sr.textContent = said; el.appendChild(sr);
-  });
-
-  /* stagger index for grouped effects */
-  document.querySelectorAll('[data-fx~="drop"], [data-fx~="deal"], [data-fx~="slide"], [data-fx~="pop"]').forEach(function (g) {
-    Array.prototype.forEach.call(g.children, function (c, i) { c.style.setProperty('--i', i); });
-  });
-  document.querySelectorAll('.term-card').forEach(function (c, i) { c.style.setProperty('--i', i); });
-
-  /* ---------- runners ---------- */
-  function karaoke(el) {
-    var words = el.querySelectorAll('.kw');
-    var rate = +el.dataset.rate || 110;
-    var start = +el.dataset.delay || 0;
-    words.forEach(function (w, i) { setTimeout(function () { w.classList.add('on'); }, start + i * rate); });
-    var ends = start + words.length * rate;
-    el.querySelectorAll('.mark').forEach(function (m) { setTimeout(function () { m.classList.add('drawn'); }, ends + 80); });
-  }
-  function typeSlip(el) {
-    var chars = el.querySelectorAll('.ch');
-    chars.forEach(function (c, i) { setTimeout(function () { c.classList.add('v'); }, 150 + i * 42); });
-  }
-  function rollOdo(el, delay) {
-    var strips = el.querySelectorAll('.odo-strip');
-    strips.forEach(function (s, i) {
-      setTimeout(function () {
-        s.style.transform = 'translateY(' + (-(+s.dataset.to)) + 'em)';
-        setTimeout(function () { s.classList.add('done'); }, 640);
-      }, delay + i * 100);
-    });
-    return delay + strips.length * 100 + 760;
-  }
-  function stepCount(el, delay) {
-    var to = +el.dataset.step, steps = 9, n = 0;
-    el.textContent = '0';
-    setTimeout(function tick() {
-      n++;
-      el.textContent = Math.round(to * n / steps);
-      if (n < steps) setTimeout(tick, 66);
-    }, delay);
-  }
+  /* ================= reveal ================= */
+  $$('[data-group]').forEach(function (g) { Array.prototype.forEach.call(g.children, function (c, i) { c.style.setProperty('--i', i); }); });
 
   function run(el) {
-    if (el.classList.contains('slip')) typeSlip(el);
-    if (el.matches('[data-fx~="karaoke"]')) karaoke(el);
+    if (el.matches('[data-type]')) type(el, 0);
+    $$('[data-type]', el).forEach(function (t, i) { type(t, 260 + i * 420); });
     if (el.classList.contains('stats')) {
       var end = 0;
-      el.querySelectorAll('.stat-value').forEach(function (v, i) { var e = rollOdo(v, 200 + i * 140); if (i === 0) end = e; });
-      setTimeout(function () { ring.classList.add('drawn'); }, end + 80);
+      $$('.stat-value', el).forEach(function (v, i) { var e = roll(v, 350 + i * 160); if (i === 0) end = e; });
+      setTimeout(function () { ring.classList.add('drawn'); }, end + 120);
     }
-    if (el.matches('[data-fx~="deal"]') || el.matches('[data-fx~="slide"]')) {
-      el.querySelectorAll('[data-odo]').forEach(function (o, i) { rollOdo(o, 260 + i * 120); });
-      el.querySelectorAll('[data-step]').forEach(function (s, i) { stepCount(s, 300 + i * 120); });
-      el.querySelectorAll('.bar .ext').forEach(function (b, i) { setTimeout(function () { b.classList.add('grown'); }, 300 + i * 120); });
-      el.querySelectorAll('.mark').forEach(function (m) { setTimeout(function () { m.classList.add('drawn'); }, 520); });
-    }
+    $$('.pen', el).forEach(function (p) { if (p !== ring) setTimeout(function () { p.classList.add('drawn'); }, 520); });
+    var b = $('.booked', el); if (b) setTimeout(function () { b.classList.add('drawn'); }, 700);
+    $$('.bar .ext', el).forEach(function (x) { setTimeout(function () { x.classList.add('grown'); }, 420); });
   }
+  function reveal(el) { if (el.classList.contains('in')) return; el.classList.add('in'); run(el); }
+
+  /* typed slips that are not inside a revealed block reveal on their own */
+  $$('[data-type]').forEach(function (t) { if (!t.closest('[data-rv]')) t.setAttribute('data-rv', ''); });
 
   var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (!e.isIntersecting) return;
-      io.unobserve(e.target);
-      e.target.classList.add('in');
-      run(e.target);
-    });
-  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
-  document.querySelectorAll('[data-rv]').forEach(function (el) { io.observe(el); });
+    entries.forEach(function (e) { if (e.isIntersecting) { io.unobserve(e.target); reveal(e.target); } });
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+  $$('[data-rv]').forEach(function (el) { io.observe(el); });
 
-  /* a jump or a very fast scroll can skip an observer callback: reveal anything already passed */
   var pending = false;
   window.addEventListener('scroll', function () {
-    if (pending) return;
-    pending = true;
+    if (pending) return; pending = true;
     setTimeout(function () {
       pending = false;
-      document.querySelectorAll('[data-rv]:not(.in)').forEach(function (el) {
-        if (el.getBoundingClientRect().top < innerHeight * 0.88) { io.unobserve(el); el.classList.add('in'); run(el); }
-      });
+      $$('[data-rv]:not(.in)').forEach(function (el) { if (el.getBoundingClientRect().top < innerHeight * 0.9) { io.unobserve(el); reveal(el); } });
     }, 90);
   }, { passive: true });
 })();
